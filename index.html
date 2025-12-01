@@ -81,24 +81,30 @@
           </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://manuelladron.github.io/">Author Name</a><sup>1</sup>,
+              <a href="https://manuelladron.github.io/">Manuel Ladron de Guevara</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="#">Co-Author Name</a><sup>2</sup>,
+              <a href="#">Jinmo Rhee</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="#">Co-Author Name</a><sup>2</sup>
+              <a href="#">Ardavan Bidgoli</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="#">Vaidas Razgaitis</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="#">Michael Bergin</a><sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Institution 1,</span>
-            <span class="author-block"><sup>2</sup>Institution 2</span>
+            <span class="author-block"><sup>1</sup>Higharc,</span>
+            <span class="author-block"><sup>2</sup>University of Calgary, Canada</span>
           </div>
 
-          <div class="is-size-6 publication-venue">
+          <!-- <div class="is-size-6 publication-venue">
             <span class="venue-badge">CVPR 2025</span>
-          </div>
+          </div> -->
 
           <!-- Links -->
           <div class="column has-text-centered">
@@ -144,7 +150,7 @@
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="hero-figure">
-        <img src="./static/images/placeholder-hero.svg" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type.">
+        <img src="./static/images/hero.png" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type.">
         <p class="hero-caption">
           <strong>Small Building Model (SBM)</strong> is an encoder-decoder Transformer that generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type. Our approach outperforms general-purpose LLMs/VLMs and domain-specific methods.
         </p>
@@ -185,7 +191,7 @@
 
     <!-- Architecture Figure -->
     <div class="method-figure">
-      <img src="./static/images/placeholder-architecture.svg" alt="SBM Architecture Overview">
+      <img src="./static/images/model_overview.png" alt="SBM Architecture Overview">
       <p class="figure-caption">
         <strong>Model Overview.</strong> (a) BIM data extraction and assembly into a discrete set of token bundles. (b) SBM encoder stack processes the tokenized feature-attribute matrix and outputs a room representation. (c) SBM decoder stack consumes the room representation as memory to the cross-attention layers and the room entities as inputs, trained on next token prediction. (d) Use cases: our SBM is used for three main tasks: DDEP, information retrieval, and user-guided DDEP with the help of an agentic layer.
       </p>
@@ -242,17 +248,107 @@
   </div>
 </section>
 
-<!-- Results Visualization -->
+<!-- Evaluation Section -->
+<section class="section evaluation-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title has-text-centered">Evaluation</h2>
+    
+    <div class="content has-text-justified">
+      <p>
+        We evaluate SBM on a BIM-grounded benchmark with <strong>specification-aware coverage</strong>, <strong>navigability</strong>, and <strong>overlap/clearance metrics</strong>. We compare against general-purpose LLMs/VLMs (GPT-4o, Claude-3.5 Sonnet, Gemini 2.0 Flash) and domain-specific layout methods (LayoutVLM, FlairGPT).
+      </p>
+    </div>
+
+    <!-- Benchmark Figure -->
+    <div class="results-figure">
+      <img src="./static/images/DDEP_benchmark_CVPR.png" alt="DDEP Benchmark Results comparing SBM against LLM/VLM and domain-specific baselines">
+      <p class="figure-caption">
+        <strong>DDEP Benchmark Results.</strong> We evaluate layout quality across four key metrics: Specification (inventory satisfaction ↑), Navigability (walkable paths ↑), Overlap (collisions ↓), and Clearance (boundary violations ↓). DDEP consistently outperforms both general-purpose LLM/VLM systems and domain-specific baselines.
+      </p>
+    </div>
+
+    <!-- Key Results Summary -->
+    <div class="columns is-multiline" style="margin-top: 2rem;">
+      <div class="column is-one-quarter">
+        <div class="has-text-centered">
+          <p class="heading">Specification</p>
+          <p class="title is-4" style="color: #4a9c6d;">Near-Complete</p>
+          <p class="is-size-7">Inventory Satisfaction</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="has-text-centered">
+          <p class="heading">Navigability</p>
+          <p class="title is-4" style="color: #4a9c6d;">State-of-the-Art</p>
+          <p class="is-size-7">Walkable Paths</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="has-text-centered">
+          <p class="heading">Overlap</p>
+          <p class="title is-4" style="color: #4a9c6d;">Lowest</p>
+          <p class="is-size-7">Collision Rate</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="has-text-centered">
+          <p class="heading">Clearance</p>
+          <p class="title is-4" style="color: #4a9c6d;">Lowest</p>
+          <p class="is-size-7">Boundary Violations</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content has-text-justified" style="margin-top: 2rem;">
+      <p>
+        Our results demonstrate that <strong>modestly sized, domain-specific sequence models</strong> over well-designed BIM tokenizations can outperform much larger general-purpose systems on layout quality. DDEP delivers functionally sound layouts that satisfy design specifications while maintaining geometric validity and constraint satisfaction.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Embedding Results Section -->
 <section class="section results-section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title has-text-centered">Results</h2>
+    <h2 class="title is-3 section-title has-text-centered">Room Embeddings</h2>
     
+    <div class="content has-text-justified">
+      <p>
+        In encoder-only mode, SBM produces high-fidelity room embeddings that capture geometric, topological, and semantic properties. We compare against strong text embedding baselines (E5-Large-v2, BGE, GTE) on clustering quality and type-constrained retrieval.
+      </p>
+    </div>
+
     <!-- Clustering Visualization -->
     <div class="results-figure">
-      <img src="./static/images/placeholder-umap.svg" alt="UMAP visualization comparing SBM and E5 embeddings">
+      <img src="./static/images/Clustering.png" alt="UMAP visualization comparing SBM and E5 embeddings">
       <p class="figure-caption">
-        <strong>UMAP visualization of room embeddings</strong> colored by room type category. SBM embeddings (left, NMI: 0.640) exhibit well-separated clusters with distinct boundaries between room types, demonstrating superior geometric and spatial understanding. E5-Large-v2 embeddings (right, NMI: 0.371) show more intermingled clusters with blurred boundaries, indicating weaker room type separation.
+        <strong>UMAP visualization of room embeddings</strong> colored by room type category. SBM embeddings (left, NMI: 0.640) exhibit well-separated clusters with distinct boundaries between room types, demonstrating superior geometric and spatial understanding. E5-Large-v2 embeddings (right, NMI: 0.371) show more intermingled clusters with blurred boundaries, indicating weaker room type separation. The 1.7× higher NMI score for SBM reflects its specialization in capturing geometric structure and spatial relationships inherent in building layouts.
       </p>
+    </div>
+
+    <!-- Embedding Metrics -->
+    <div class="columns is-multiline" style="margin-top: 2rem;">
+      <div class="column is-one-third">
+        <div class="has-text-centered">
+          <p class="heading">NMI Score</p>
+          <p class="title is-3" style="color: #4a9c6d;">0.640</p>
+          <p class="is-size-7">1.7× better than text baselines</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="has-text-centered">
+          <p class="heading">Triplet Accuracy</p>
+          <p class="title is-3" style="color: #4a9c6d;">100%</p>
+          <p class="is-size-7">Type-constrained retrieval</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="has-text-centered">
+          <p class="heading">Entity Overlap</p>
+          <p class="title is-3" style="color: #4a9c6d;">78.9%</p>
+          <p class="is-size-7">Highest among all methods</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -264,19 +360,16 @@
       <h2 class="title is-3 section-title has-text-centered" style="margin-bottom: 2rem;">Gallery</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="carousel-item">
-          <img src="./static/images/placeholder-gallery-1.svg" alt="Layout generation example 1">
+          <img src="./static/images/ddep_qual.png" alt="DDEP qualitative results across different room types">
         </div>
         <div class="carousel-item">
-          <img src="./static/images/placeholder-gallery-2.svg" alt="Layout generation example 2">
+          <img src="./static/images/DDEP_resulsts.png" alt="DDEP layout generation results">
         </div>
         <div class="carousel-item">
-          <img src="./static/images/placeholder-gallery-3.svg" alt="Layout generation example 3">
+          <img src="./static/images/HERO_supp_v2.jpg" alt="Additional layout examples">
         </div>
         <div class="carousel-item">
-          <img src="./static/images/placeholder-gallery-4.svg" alt="Baseline comparison">
-        </div>
-        <div class="carousel-item">
-          <img src="./static/images/placeholder-gallery-5.svg" alt="Additional results">
+          <img src="./static/images/nav_masterbed-1.jpg" alt="Navigability analysis in master bedroom">
         </div>
       </div>
     </div>
