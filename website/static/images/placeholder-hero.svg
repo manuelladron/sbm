@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="500" fill="url(#bg)"/>
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="32" fill="#64748b" text-anchor="middle" font-weight="600">Hero Figure Placeholder</text>
+  <text x="600" y="270" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">SBM Layout Generation Examples</text>
+  <text x="600" y="310" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Replace with Figure 1 from paper</text>
+  <rect x="100" y="350" width="200" height="100" rx="8" fill="#cbd5e1" stroke="#94a3b8"/>
+  <rect x="350" y="350" width="200" height="100" rx="8" fill="#cbd5e1" stroke="#94a3b8"/>
+  <rect x="600" y="350" width="200" height="100" rx="8" fill="#cbd5e1" stroke="#94a3b8"/>
+  <rect x="850" y="350" width="200" height="100" rx="8" fill="#cbd5e1" stroke="#94a3b8"/>
+  <text x="200" y="405" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Kitchen</text>
+  <text x="450" y="405" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Living Room</text>
+  <text x="700" y="405" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Bedroom</text>
+  <text x="950" y="405" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Office</text>
+</svg>

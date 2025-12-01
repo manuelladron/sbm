@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Tokenizing Buildings: A Transformer for Layout Synthesis - Small Building Model (SBM) for BIM layout generation.">
+  <meta name="keywords" content="SBM, BIM, Layout Synthesis, Transformer, DDEP, Building Information Modeling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tokenizing Buildings: A Transformer for Layout Synthesis</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PLACEHOLDER');
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://manuelladron.github.io">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">More Research</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/manuelladron">Author's GitHub</a>
+          <a class="navbar-item" href="https://scholar.google.com/citations?user=yP_0YCsAAAAJ">Google Scholar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="title-icon">🏗️</span>
+            Tokenizing Buildings: A Transformer for Layout Synthesis
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://manuelladron.github.io/">Author Name</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Co-Author Name</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Co-Author Name</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Institution 1,</span>
+            <span class="author-block"><sup>2</sup>Institution 2</span>
+          </div>
+
+          <div class="is-size-6 publication-venue">
+            <span class="venue-badge">CVPR 2025</span>
+          </div>
+
+          <!-- Links -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link -->
+              <span class="link-block">
+                <a href="./static/paper/sbm_paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link (Placeholder) -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark" disabled>
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark" disabled>
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero Figure -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="hero-figure">
+        <img src="./static/images/placeholder-hero.svg" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type.">
+        <p class="hero-caption">
+          <strong>Small Building Model (SBM)</strong> is an encoder-decoder Transformer that generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type. Our approach outperforms general-purpose LLMs/VLMs and domain-specific methods.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 section-title">Abstract</h2>
+        <div class="content has-text-justified abstract-content">
+          <p>
+            We introduce <strong>Small Building Models (SBM)</strong>, a Transformer-based architecture for layout synthesis in Building Information Modeling (BIM) scenes. We address the question of how to <em>tokenize buildings</em> by unifying heterogeneous feature sets of architectural elements into sequences while preserving compositional structure. Such feature sets are represented as a <strong>sparse attribute-feature matrix</strong> that captures room properties. We then design a <strong>unified embedding module</strong> that learns joint representations of categorical and possibly correlated continuous feature groups.
+          </p>
+          <p>
+            Lastly, we train a single Transformer backbone in two modes: an <strong>encoder-only pathway</strong> that yields high-fidelity room embeddings, and an <strong>encoder-decoder pipeline</strong> for autoregressive prediction of room entities—referred to as <strong>Data-Driven Entity Prediction (DDEP)</strong>. Experiments across retrieval and generative layout synthesis show that SBM learns compact room embeddings that reliably cluster by type and topology, enabling strong semantic retrieval. In DDEP mode, SBM produces functionally sound layouts—with fewer collisions and boundary violations and improved navigability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method Overview Section -->
+<section class="section method-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title has-text-centered">How Does It Work?</h2>
+    
+    <div class="content has-text-justified">
+      <p>
+        Our goal is to learn a unified representation for BIM scenes that enables both <strong>retrieval</strong> (finding similar rooms) and <strong>generation</strong> (placing furniture, doors, and fixtures). SBM takes as input a room envelope—walls, doors, windows—and produces either room embeddings or a complete layout with placed entities.
+      </p>
+    </div>
+
+    <!-- Architecture Figure -->
+    <div class="method-figure">
+      <img src="./static/images/placeholder-architecture.svg" alt="SBM Architecture Overview">
+      <p class="figure-caption">
+        <strong>Model Overview.</strong> (a) BIM data extraction and assembly into a discrete set of token bundles. (b) SBM encoder stack processes the tokenized feature-attribute matrix and outputs a room representation. (c) SBM decoder stack consumes the room representation as memory to the cross-attention layers and the room entities as inputs, trained on next token prediction. (d) Use cases: our SBM is used for three main tasks: DDEP, information retrieval, and user-guided DDEP with the help of an agentic layer.
+      </p>
+    </div>
+
+    <!-- Key Components -->
+    <div class="columns is-multiline method-cards">
+      <div class="column is-one-third">
+        <div class="method-card">
+          <div class="method-card-icon">
+            <i class="fas fa-cubes"></i>
+          </div>
+          <h4 class="method-card-title">BIM-Token Bundles</h4>
+          <p>We introduce a normalized hierarchical tokenizer that encodes room topology, entity attributes, wall-referenced geometry, and relational structure into compact token bundles realized as rows of a sparse attribute-feature matrix.</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="method-card">
+          <div class="method-card-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h4 class="method-card-title">Mixed-Type Embeddings</h4>
+          <p>A unified embedding module handles both categorical and continuous features, learning joint representations that preserve the compositional structure of architectural elements.</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="method-card">
+          <div class="method-card-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h4 class="method-card-title">Dual-Mode Backbone</h4>
+          <p>A single Transformer supports encoder-only room embeddings for retrieval and encoder-decoder DDEP for autoregressive layout generation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Explanation -->
+    <div class="content has-text-justified">
+      <h3 class="title is-4">Encoder-Only Pathway</h3>
+      <p>
+        The encoder-only pathway produces high-fidelity room embeddings that capture geometric, topological, and semantic properties. These embeddings cluster reliably by room type and topology, achieving <strong>NMI: 0.640</strong> (1.7× better than text embedding baselines) and <strong>perfect type-constrained triplet accuracy (100%)</strong>.
+      </p>
+
+      <h3 class="title is-4">Data-Driven Entity Prediction (DDEP)</h3>
+      <p>
+        In DDEP mode, the encoder-decoder pipeline autoregressively places room entities (props, casework, doors) conditioned on the room envelope. DDEP produces functionally sound layouts with:
+      </p>
+      <ul>
+        <li><strong>Near-complete inventory satisfaction</strong> — placing required furniture and fixtures</li>
+        <li><strong>State-of-the-art navigability</strong> — ensuring walkable paths through the room</li>
+        <li><strong>Lowest violation rates</strong> — fewer collisions and boundary violations than LLM/VLM baselines</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Results Visualization -->
+<section class="section results-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title has-text-centered">Results</h2>
+    
+    <!-- Clustering Visualization -->
+    <div class="results-figure">
+      <img src="./static/images/placeholder-umap.svg" alt="UMAP visualization comparing SBM and E5 embeddings">
+      <p class="figure-caption">
+        <strong>UMAP visualization of room embeddings</strong> colored by room type category. SBM embeddings (left, NMI: 0.640) exhibit well-separated clusters with distinct boundaries between room types, demonstrating superior geometric and spatial understanding. E5-Large-v2 embeddings (right, NMI: 0.371) show more intermingled clusters with blurred boundaries, indicating weaker room type separation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Carousel -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 section-title has-text-centered" style="margin-bottom: 2rem;">Gallery</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="carousel-item">
+          <img src="./static/images/placeholder-gallery-1.svg" alt="Layout generation example 1">
+        </div>
+        <div class="carousel-item">
+          <img src="./static/images/placeholder-gallery-2.svg" alt="Layout generation example 2">
+        </div>
+        <div class="carousel-item">
+          <img src="./static/images/placeholder-gallery-3.svg" alt="Layout generation example 3">
+        </div>
+        <div class="carousel-item">
+          <img src="./static/images/placeholder-gallery-4.svg" alt="Baseline comparison">
+        </div>
+        <div class="carousel-item">
+          <img src="./static/images/placeholder-gallery-5.svg" alt="Additional results">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Contributions -->
+<section class="section contributions-section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title has-text-centered">Key Contributions</h2>
+    <div class="columns is-multiline">
+      <div class="column is-half">
+        <div class="contribution-item">
+          <span class="contribution-number">1</span>
+          <div class="contribution-content">
+            <h4>Normalized Hierarchical Tokenization</h4>
+            <p>A BIM tokenization scheme with a mixed-type embedding module that unifies categorical and continuous architectural features.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="contribution-item">
+          <span class="contribution-number">2</span>
+          <div class="contribution-content">
+            <h4>Unified Transformer Backbone</h4>
+            <p>SBM supports both retrieval (encoder-only) and generative layout synthesis (encoder-decoder DDEP) in a single architecture.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="contribution-item">
+          <span class="contribution-number">3</span>
+          <div class="contribution-content">
+            <h4>Comprehensive Evaluation</h4>
+            <p>Rigorous benchmarks on a professional BIM dataset demonstrating superior scene coherence, geometric validity, and constraint satisfaction.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="contribution-item">
+          <span class="contribution-number">4</span>
+          <div class="contribution-content">
+            <h4>Domain-Specific Excellence</h4>
+            <p>Modestly sized, domain-specific models over well-designed tokenizations outperform much larger general-purpose systems on layout quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX Section -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 section-title">BibTeX</h2>
+    <pre><code>@inproceedings{sbm2025cvpr,
+  title={Tokenizing Buildings: A Transformer for Layout Synthesis},
+  author={[Author Names]},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/paper/sbm_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/manuelladron" class="external-link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website template based on the <a href="https://nerfies.github.io/">Nerfies</a> project page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+

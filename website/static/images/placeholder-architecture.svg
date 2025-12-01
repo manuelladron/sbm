@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f1f5f9"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="400" fill="url(#bg2)"/>
+  <text x="500" y="180" font-family="Arial, sans-serif" font-size="28" fill="#64748b" text-anchor="middle" font-weight="600">Architecture Figure Placeholder</text>
+  <text x="500" y="220" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">SBM Model Overview</text>
+  <text x="500" y="250" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Replace with Figure 2 from paper</text>
+  <rect x="50" y="280" width="150" height="80" rx="8" fill="#2563eb" opacity="0.2" stroke="#2563eb"/>
+  <text x="125" y="325" font-family="Arial, sans-serif" font-size="11" fill="#2563eb" text-anchor="middle">BIM Data</text>
+  <rect x="250" y="280" width="150" height="80" rx="8" fill="#2563eb" opacity="0.2" stroke="#2563eb"/>
+  <text x="325" y="325" font-family="Arial, sans-serif" font-size="11" fill="#2563eb" text-anchor="middle">Tokenizer</text>
+  <rect x="450" y="280" width="150" height="80" rx="8" fill="#2563eb" opacity="0.2" stroke="#2563eb"/>
+  <text x="525" y="325" font-family="Arial, sans-serif" font-size="11" fill="#2563eb" text-anchor="middle">Encoder</text>
+  <rect x="650" y="280" width="150" height="80" rx="8" fill="#2563eb" opacity="0.2" stroke="#2563eb"/>
+  <text x="725" y="325" font-family="Arial, sans-serif" font-size="11" fill="#2563eb" text-anchor="middle">Decoder</text>
+  <rect x="850" y="280" width="100" height="80" rx="8" fill="#f59e0b" opacity="0.2" stroke="#f59e0b"/>
+  <text x="900" y="325" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b" text-anchor="middle">Output</text>
+  <path d="M200 320 L250 320" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M400 320 L450 320" stroke="#64748b" stroke-width="2"/>
+  <path d="M600 320 L650 320" stroke="#64748b" stroke-width="2"/>
+  <path d="M800 320 L850 320" stroke="#64748b" stroke-width="2"/>
+</svg>
