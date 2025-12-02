@@ -62,14 +62,14 @@ DDEP delivers **near-complete inventory satisfaction**, **state-of-the-art navig
 
 ## Citation
 
-```bibtex
+<!-- ```bibtex
 @inproceedings{sbm2025cvpr,
   title={Tokenizing Buildings: A Transformer for Layout Synthesis},
   author={Ladron de Guevara, Manuel and Rhee, Jinmo and Bidgoli, Ardavan and Razgaitis, Vaidas and Bergin, Michael},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2025}
 }
-```
+``` -->
 
 ---
 
