@@ -1,148 +1,92 @@
-# SBM Project Website
+# Tokenizing Buildings: A Transformer for Layout Synthesis
 
-Project website for "Tokenizing Buildings: A Transformer for Layout Synthesis" (CVPR 2025).
+<p align="center">
+  <img src="static/images/hero.png" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope" width="100%">
+</p>
 
-## Overview
+<p align="center">
+  <strong>Small Building Model (SBM)</strong> is an encoder-decoder Transformer that generates functionally correct and semantically coherent layouts given a room envelope.
+</p>
 
-This directory contains the static website for the SBM (Small Building Model) publication. The website is designed to be hosted on GitHub Pages without requiring any server-side code.
+<p align="center">
+  <a href="./static/paper/sbm.pdf"><img src="https://img.shields.io/badge/Paper-PDF-red?style=for-the-badge&logo=adobeacrobatreader" alt="Paper PDF"></a>
+  <a href="#"><img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b?style=for-the-badge&logo=arxiv" alt="arXiv"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Code-coming_soon-black?style=for-the-badge&logo=github" alt="Code"></a>
+</p>
 
-## Directory Structure
+---
 
-```
-website/
-├── index.html              # Main HTML page
-├── README.md               # This file
-└── static/
-    ├── css/
-    │   ├── bulma.min.css          # Bulma CSS framework
-    │   ├── bulma-carousel.min.css # Carousel styles
-    │   ├── bulma-slider.min.css   # Slider styles
-    │   └── index.css              # Custom styles
-    ├── js/
-    │   ├── bulma-carousel.min.js  # Carousel JavaScript
-    │   ├── bulma-slider.min.js    # Slider JavaScript
-    │   └── index.js               # Custom JavaScript
-    ├── images/
-    │   ├── favicon.svg            # Site favicon
-    │   ├── placeholder-*.svg      # Placeholder images (replace with real figures)
-    │   └── ...                    # Add your paper figures here
-    └── paper/
-        └── sbm_paper.pdf          # Paper PDF (add when ready)
-```
+## Abstract
 
-## Deploying to GitHub Pages
+We introduce **Small Building Models (SBM)**, a Transformer-based architecture for layout synthesis in Building Information Modeling (BIM) scenes. We address the question of how to *tokenize buildings* by unifying heterogeneous feature sets of architectural elements into sequences while preserving compositional structure. Such feature sets are represented as a **sparse attribute-feature matrix** that captures room properties. We then design a **unified embedding module** that learns joint representations of categorical and possibly correlated continuous feature groups.
 
-### Option 1: Dedicated Repository (Recommended)
+We train a single Transformer backbone in two modes: an **encoder-only pathway** that yields high-fidelity room embeddings, and an **encoder-decoder pipeline** for autoregressive prediction of room entities—referred to as **Data-Driven Entity Prediction (DDEP)**. Experiments across retrieval and generative layout synthesis show that SBM learns compact room embeddings that reliably cluster by type and topology, enabling strong semantic retrieval. In DDEP mode, SBM produces functionally sound layouts—with fewer collisions and boundary violations and improved navigability.
 
-1. **Create a new public repository** on GitHub (e.g., `sbm`)
+---
 
-2. **Copy the website contents**:
-   ```bash
-   # From this directory
-   cp -r * /path/to/new/sbm-repo/
-   ```
+## Method Overview
 
-3. **Push to GitHub**:
-   ```bash
-   cd /path/to/new/sbm-repo
-   git init
-   git add .
-   git commit -m "Initial website"
-   git remote add origin https://github.com/YOUR_USERNAME/sbm.git
-   git push -u origin main
-   ```
+<p align="center">
+  <img src="static/images/model_overview.png" alt="SBM Architecture Overview" width="100%">
+</p>
 
-4. **Enable GitHub Pages**:
-   - Go to repository Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `main` (or `master`)
-   - Folder: `/ (root)`
-   - Click Save
+**(a)** BIM data extraction and assembly into a discrete set of token bundles. **(b)** SBM encoder stack processes the tokenized feature-attribute matrix and outputs a room representation. **(c)** SBM decoder stack consumes the room representation as memory to the cross-attention layers and the room entities as inputs, trained on next token prediction. **(d)** Use cases: DDEP, information retrieval, and user-guided DDEP with an agentic layer.
 
-5. **Access your site** at: `https://YOUR_USERNAME.github.io/sbm/`
+---
 
-### Option 2: Existing Repository with docs/ folder
+## Results
 
-1. Copy this website folder to `docs/` in your existing repo
-2. Enable GitHub Pages with source set to `docs/` folder
+### DDEP Benchmark
 
-## Updating Content
+<p align="center">
+  <img src="static/images/DDEP_benchmark_CVPR.png" alt="DDEP Benchmark Results" width="90%">
+</p>
 
-### Replace Placeholder Images
+DDEP delivers **near-complete inventory satisfaction**, **state-of-the-art navigability**, and the **lowest violation rates** across LLM/VLM and domain-specific baselines.
 
-The `static/images/` folder contains SVG placeholder images. Replace these with your actual figures:
+### Room Embeddings
 
-| Placeholder | Description | Recommended Size |
-|-------------|-------------|------------------|
-| `placeholder-hero.svg` | Figure 1 - Hero image showing layout examples | 1200×500px |
-| `placeholder-architecture.svg` | Figure 2 - Model architecture overview | 1000×400px |
-| `placeholder-umap.svg` | Figure 4 - UMAP clustering visualization | 900×400px |
-| `placeholder-gallery-*.svg` | Gallery images for carousel | 400×300px |
+<p align="center">
+  <img src="static/images/Clustering.png" alt="UMAP visualization of room embeddings" width="90%">
+</p>
 
-### Update Author Information
+**UMAP visualization of room embeddings** colored by room type category. SBM embeddings (left, NMI: 0.640) exhibit well-separated clusters with distinct boundaries. The 1.7× higher NMI score reflects SBM's specialization in capturing geometric structure and spatial relationships.
 
-Edit `index.html` and update:
+| Metric | SBM | Best Text Baseline |
+|--------|-----|-------------------|
+| **NMI Score** | 0.640 | 0.371 (E5-Large-v2) |
+| **Triplet Accuracy** | 100% | — |
+| **Entity Overlap** | 78.9% | — |
 
-1. **Authors** (lines ~65-75):
-   ```html
-   <span class="author-block">
-     <a href="https://your-website.com">Your Name</a><sup>1</sup>,
-   </span>
-   ```
+---
 
-2. **Affiliations** (lines ~78-81):
-   ```html
-   <span class="author-block"><sup>1</sup>Your Institution,</span>
-   ```
+## Citation
 
-3. **Links** (lines ~90-115):
-   - Update PDF link when paper is ready
-   - Add arXiv link when available
-   - Update GitHub/Code links if releasing code
-
-4. **BibTeX** (lines ~280-290):
-   ```bibtex
-   @inproceedings{sbm2025cvpr,
-     title={Tokenizing Buildings: A Transformer for Layout Synthesis},
-     author={Your Name and Co-Author Name},
-     booktitle={CVPR},
-     year={2025}
-   }
-   ```
-
-### Add Paper PDF
-
-Place your paper PDF at `static/paper/sbm_paper.pdf`.
-
-### Google Analytics (Optional)
-
-Replace `G-PLACEHOLDER` in `index.html` (line ~12) with your Google Analytics ID:
-```html
-gtag('config', 'YOUR-GA-ID');
+```bibtex
+@inproceedings{sbm2025cvpr,
+  title={Tokenizing Buildings: A Transformer for Layout Synthesis},
+  author={Ladron de Guevara, Manuel and Rhee, Jinmo and Bidgoli, Ardavan and Razgaitis, Vaidas and Bergin, Michael},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2025}
+}
 ```
 
-## Local Development
+---
 
-To preview the website locally:
+## Website
+
+This repository contains the project website. To run locally:
 
 ```bash
-# Using Python 3
-cd website
 python -m http.server 8000
-
-# Or using Node.js
-npx serve .
 ```
 
 Then open `http://localhost:8000` in your browser.
 
-## Credits
-
-- Website template based on [Nerfies](https://nerfies.github.io/)
-- CSS framework: [Bulma](https://bulma.io/)
-- Icons: [Font Awesome](https://fontawesome.com/)
+---
 
 ## License
 
 This website template is licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
 
+Website template based on [Nerfies](https://nerfies.github.io/).
