@@ -225,16 +225,20 @@ h1, h2, h3, h4, h5, h6 {
   padding: 4rem 1.5rem;
 }
 
+.gif-grid-section .container {
+  max-width: 1200px !important;
+  width: 100% !important;
+}
+
 .gif-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .gif-item {
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
@@ -251,20 +255,21 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (max-width: 1024px) {
   .gif-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
 @media screen and (max-width: 768px) {
   .gif-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 @media screen and (max-width: 480px) {
   .gif-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     max-width: 300px;
+    margin: 0 auto;
   }
 }
 
