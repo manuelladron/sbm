@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis - Small Building Model (SBM) for BIM layout generation.">
+  <meta name="description" content="BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis. Accepted at EUVIP 2026. Small Building Model (SBM) for BIM layout generation.">
   <meta name="keywords" content="SBM, BIM, Layout Synthesis, Transformer, DDEP, Building Information Modeling">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis</title>
@@ -79,6 +79,12 @@
             <span class="title-icon">🏗️</span>
             BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis
           </h1>
+          <p class="publication-venue is-size-4" style="margin-top:-0.5rem; margin-bottom:1.25rem; font-weight:600; color:#4a9c6d;">
+            Accepted at EUVIP 2026
+            <span class="is-size-6" style="font-weight:400; color:#7a7a7a;">
+              &nbsp;·&nbsp; 14th European Conference on Visual Information Processing, Luxembourg
+            </span>
+          </p>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://manuelladron.github.io/">Manuel Ladron de Guevara</a><sup>1</sup>,
@@ -268,15 +274,89 @@
     
     <div class="content has-text-justified">
       <p>
-        We evaluate SBM on a BIM-grounded benchmark with <strong>specification-aware coverage</strong>, <strong>navigability</strong>, and <strong>overlap/clearance metrics</strong>. We compare against general-purpose LLMs/VLMs (GPT-4o, Claude-3.5 Sonnet, Gemini 2.0 Flash) and domain-specific layout methods (LayoutVLM, FlairGPT).
+        We evaluate SBM under two complementary protocols, exactly as reported in the EUVIP&nbsp;2026 paper.
+        The <strong>controlled same-data benchmark</strong> is the lead result: every method is trained from
+        scratch on one frozen split with a shared ontology, canonical furniture dimensions and a single
+        evaluation harness, which isolates architectural effects from data scale. The
+        <strong>deployment-style benchmark</strong> compares production DDEP against zero-shot frontier
+        LLMs/VLMs and domain-specific systems. Metrics are
+        <strong>Cov.</strong> (inventory coverage&nbsp;&uarr;), <strong>Nav</strong> (door-to-target
+        navigability&nbsp;&uarr;), <strong>SR</strong> (reachability&nbsp;&uarr;),
+        <strong>DF</strong> (detour factor&nbsp;&darr;) and <strong>OC</strong> (overlap&ndash;clearance&nbsp;&darr;);
+        they must be read jointly, since a sparse room can score well on OC while failing coverage and reachability.
       </p>
     </div>
 
-    <!-- Benchmark Figure -->
-    <div class="results-figure">
-      <img src="./static/images/DDEP_benchmark_CVPR.png" alt="DDEP Benchmark Results comparing SBM against LLM/VLM and domain-specific baselines">
+    <!-- Controlled same-data benchmark (paper Table I) -->
+    <h3 class="title is-4" style="margin-top:2rem;">Controlled same-data benchmark</h3>
+    <div class="table-container">
+      <table class="table is-fullwidth is-narrow is-hoverable">
+        <thead>
+          <tr>
+            <th>Method</th><th>Cov. &uarr;</th><th>Nav &uarr;</th><th>SR &uarr;</th><th>DF &darr;</th><th>OC &darr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ATISS <em>(same-data)</em></td><td>40.8 &plusmn; 23.6</td><td>&minus;30.3 &plusmn; 24.0</td><td>0.03</td><td>0.97</td><td><strong>0.5</strong></td></tr>
+          <tr><td>BLT <em>(same-data)</em></td><td>17.8 &plusmn; 20.4</td><td>&minus;18.6 &plusmn; 42.7</td><td>0.12</td><td>0.88</td><td>35.7</td></tr>
+          <tr style="background:#f0f8f4;">
+            <td><strong>DDEP (ours)</strong></td><td><strong>54.9 &plusmn; 38.3</strong></td><td><strong>14.6 &plusmn; 56.0</strong></td><td><strong>0.36</strong></td><td><strong>0.60</strong></td><td>13.4</td></tr>
+          <tr><td colspan="6" class="has-text-centered"><em>DDEP ablations</em></td></tr>
+          <tr><td>&nbsp;&nbsp;Wall-only</td><td>50.8</td><td>9.6</td><td>0.32</td><td>0.63</td><td>12.7</td></tr>
+          <tr><td>&nbsp;&nbsp;No continuous groups</td><td>42.6</td><td>0.7</td><td>0.25</td><td>0.69</td><td>13.4</td></tr>
+          <tr><td>&nbsp;&nbsp;No edge coordinates</td><td>56.7</td><td>14.4</td><td>0.35</td><td>0.60</td><td>14.5</td></tr>
+          <tr><td>&nbsp;&nbsp;Order: <em>t</em> first</td><td>42.6</td><td>4.1</td><td>0.29</td><td>0.70</td><td>10.6</td></tr>
+          <tr><td>&nbsp;&nbsp;Order: edge, <em>t</em> desc.</td><td>46.5</td><td>7.8</td><td>0.31</td><td>0.66</td><td>13.4</td></tr>
+        </tbody>
+      </table>
       <p class="figure-caption">
-        <strong>DDEP Benchmark Results.</strong> We evaluate layout quality across four key metrics: Specification (inventory satisfaction ↑), Navigability (walkable paths ↑), Overlap (collisions ↓), and Clearance (boundary violations ↓). DDEP consistently outperforms both general-purpose LLM/VLM systems and domain-specific baselines.
+        Shared 1,225-room geometry-valid test subset. ATISS's near-zero OC reflects sparse outputs that avoid
+        collisions while leaving almost all targets unreachable; BLT shows the opposite failure mode. Removing
+        the joint continuous-group embedding is the single most damaging change, which is the paper's central
+        evidence that the representation &mdash; not model scale &mdash; drives performance. ATISS and BLT outputs are
+        bridged into our wall-referenced format; that bridge is applied to the baselines but not to DDEP, so part
+        of the gap may reflect conversion loss.
+      </p>
+    </div>
+
+    <!-- Deployment-style frontier benchmark (paper Table II, full per-model) -->
+    <h3 class="title is-4" style="margin-top:2.5rem;">Deployment-style benchmark vs. frontier models</h3>
+    <div class="table-container">
+      <table class="table is-fullwidth is-narrow is-hoverable">
+        <thead>
+          <tr><th>Method</th><th>Cov. &uarr;</th><th>Nav &uarr;</th><th>OC &darr;</th><th>Latency (s) &darr;</th></tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5" class="has-text-centered"><em>Text-only LLMs</em></td></tr>
+          <tr><td>Claude Opus 4.6</td><td>58.9</td><td>&minus;0.8</td><td>11.3</td><td>15.6</td></tr>
+          <tr><td>Claude Sonnet 4.6</td><td>64.9</td><td>0.3</td><td>10.5</td><td>81.2</td></tr>
+          <tr><td>Claude Haiku 4.5</td><td>55.3</td><td>4.4</td><td>15.2</td><td>7.0</td></tr>
+          <tr><td>GPT-5.2 <sup>&dagger;</sup></td><td>47.6</td><td>16.8</td><td>13.0</td><td>55.1</td></tr>
+          <tr><td>Gemini 3.1 Pro <sup>&ddagger;</sup></td><td>63.7</td><td>20.5</td><td>9.2</td><td>67.1</td></tr>
+          <tr><td>Codex 5.3</td><td>68.3</td><td>18.9</td><td>9.8</td><td>20.8</td></tr>
+          <tr><td>Qwen 3.5</td><td>64.6</td><td>3.1</td><td>13.6</td><td>19.0</td></tr>
+          <tr><td colspan="5" class="has-text-centered"><em>Vision-language models (floorplan-conditioned)</em></td></tr>
+          <tr><td>Claude Opus 4.6</td><td>61.9</td><td>55.5</td><td>8.2</td><td>15.3</td></tr>
+          <tr><td>Claude Sonnet 4.6</td><td>65.6</td><td>34.6</td><td>11.0</td><td>14.8</td></tr>
+          <tr><td>Claude Haiku 4.5</td><td>60.7</td><td>25.2</td><td>16.2</td><td>6.9</td></tr>
+          <tr><td>GPT-5.2 <sup>&dagger;</sup></td><td>57.0</td><td>34.9</td><td>12.1</td><td>101.7</td></tr>
+          <tr><td>Gemini 3.1 Pro <sup>&sect;</sup></td><td>86.5</td><td>47.8</td><td>2.2</td><td>&ndash;</td></tr>
+          <tr><td>Qwen 3.5 <sup>&dagger;</sup></td><td>60.7</td><td>27.1</td><td>12.8</td><td>84.1</td></tr>
+          <tr><td colspan="5" class="has-text-centered"><em>Domain-specific methods</em></td></tr>
+          <tr><td>LayoutVLM</td><td>&ndash;</td><td>40.3</td><td>3.8</td><td>145.0</td></tr>
+          <tr><td>FlairGPT</td><td>46.6</td><td>28.2</td><td>3.9</td><td>1133.6</td></tr>
+          <tr style="background:#f0f8f4;">
+            <td><strong>DDEP (ours)</strong></td><td><strong>98.1</strong></td><td><strong>79.2</strong></td><td><strong>1.9</strong></td><td><strong>3.18</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="figure-caption">
+        50-room held-out set. All models receive the same tuned prompt with an explicit coordinate system,
+        wall-condition guidance, a room-type-filtered entity catalog for information parity with DDEP, and a
+        matched example of the expected output format &mdash; so the gap is not an artifact of naive prompting.
+        It remains a <em>deployment floor</em> rather than an architectural ceiling: each model is run once per
+        room with no best-of-<em>k</em> or chain-of-thought, and no open model is fine-tuned in-domain.
+        <sup>&dagger;</sup>evaluated on a subset (parse success &lt;70%). <sup>&ddagger;</sup>37/50 rooms.
+        <sup>&sect;</sup>7/50 rooms, unreliable.
       </p>
     </div>
 
@@ -335,7 +415,7 @@
     <div class="results-figure">
       <img src="./static/images/Clustering.png" alt="UMAP visualization comparing SBM and E5 embeddings">
       <p class="figure-caption">
-        <strong>UMAP visualization of room embeddings</strong> colored by room type category. SBM embeddings (left, NMI: 0.726) exhibit well-separated clusters with distinct boundaries between room types, demonstrating superior geometric and spatial understanding. E5-Large-v2 embeddings (right, NMI: 0.371) show more intermingled clusters with blurred boundaries, indicating weaker room type separation. The 2.0× higher NMI score for SBM reflects its specialization in capturing geometric structure and spatial relationships inherent in building layouts.
+        <strong>UMAP visualization of room embeddings</strong> colored by room type category. SBM embeddings (left) form well-separated clusters with distinct boundaries between room types; E5-Large-v2 embeddings (right, NMI 0.371) show intermingled clusters with blurred boundaries. <em>Note: this projection was generated from an earlier encoder configuration (NMI 0.640, as labelled in the plot); the final model reported in the table reaches NMI 0.726. The qualitative separation is unchanged.</em>
       </p>
     </div>
 
