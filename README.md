@@ -1,7 +1,7 @@
-# Tokenizing Buildings: A Transformer for Layout Synthesis
+# BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis
 
 <p align="center">
-  <img src="static/images/hero.png" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope" width="100%">
+  <img src="static/images/hero.png" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope" width="99.9%">
 </p>
 
 <p align="center">
@@ -27,10 +27,10 @@ We train a single Transformer backbone in two modes: an **encoder-only pathway**
 ## Method Overview
 
 <p align="center">
-  <img src="static/images/model_overview.png" alt="SBM Architecture Overview" width="100%">
+  <img src="static/images/model_overview.png" alt="SBM Architecture Overview" width="99.9%">
 </p>
 
-**(a)** BIM data extraction and assembly into a discrete set of token bundles. **(b)** SBM encoder stack processes the tokenized feature-attribute matrix and outputs a room representation. **(c)** SBM decoder stack consumes the room representation as memory to the cross-attention layers and the room entities as inputs, trained on next token prediction. **(d)** Use cases: DDEP, information retrieval, and user-guided DDEP with an agentic layer.
+**(a)** BIM data extraction and assembly into a discrete set of token bundles. **(b)** SBM encoder stack processes the tokenized feature-attribute matrix and outputs a room representation. **(c)** SBM decoder stack consumes the room representation as memory to the cross-attention layers and the room entities as inputs, trained on next token prediction. **(d)** Use cases: DDEP, information retrieval, and a prospective user-guided agentic layer (not evaluated).
 
 ---
 
@@ -50,13 +50,13 @@ DDEP delivers **near-complete inventory satisfaction**, **state-of-the-art navig
   <img src="static/images/Clustering.png" alt="UMAP visualization of room embeddings" width="90%">
 </p>
 
-**UMAP visualization of room embeddings** colored by room type category. SBM embeddings (left, NMI: 0.640) exhibit well-separated clusters with distinct boundaries. The 1.7× higher NMI score reflects SBM's specialization in capturing geometric structure and spatial relationships.
+**UMAP visualization of room embeddings** colored by room type category. SBM embeddings (left, NMI: 0.726) exhibit well-separated clusters with distinct boundaries. The 2.0× higher NMI score reflects SBM's specialization in capturing geometric structure and spatial relationships.
 
 | Metric | SBM | Best Text Baseline |
 |--------|-----|-------------------|
-| **NMI Score** | 0.640 | 0.371 (E5-Large-v2) |
-| **Triplet Accuracy** | 100% | — |
-| **Entity Overlap** | 78.9% | — |
+| **NMI Score** | 0.726 | 0.371 (E5-Large-v2) |
+| **Triplet Accuracy** | 99.9% | — |
+| **Entity Overlap** | 77.0% | — |
 
 ---
 
@@ -64,7 +64,7 @@ DDEP delivers **near-complete inventory satisfaction**, **state-of-the-art navig
 
 <!-- ```bibtex
 @inproceedings{sbm2025cvpr,
-  title={Tokenizing Buildings: A Transformer for Layout Synthesis},
+  title={BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis},
   author={Ladron de Guevara, Manuel and Rhee, Jinmo and Bidgoli, Ardavan and Razgaitis, Vaidas and Bergin, Michael},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2025}
