@@ -36,9 +36,12 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
-  <!-- MathJax -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- NOTE: this template originally loaded polyfill.io alongside MathJax. That
+       script has been removed: the polyfill.io domain changed ownership in 2024 and
+       no longer serves the library, so visitors were being shown an authentication
+       prompt. MathJax was removed too, as this page contains no math. To re-enable
+       equations, load mathjax@3 (es5/tex-mml-chtml.js) from cdn.jsdelivr.net; it
+       needs no polyfill in any currently supported browser. -->
 </head>
 <body>
 
