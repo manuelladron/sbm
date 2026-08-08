@@ -1,0 +1,148 @@
+/* ==========================================================================
+   COLOR TOKENS
+   Single source of truth for all color values
+   Prefixed with --ds-color-* to distinguish from semantic theme variables
+
+   Per Tailwind CSS v4 theming pattern, primitives go in @layer base.
+   See: https://github.com/tailwindlabs/tailwindcss/discussions/15600
+   ========================================================================== */
+
+:root {
+  /* Brand Primary Colors */
+  --ds-color-black: hsl(0 0% 9%); /* #171717 */
+  --ds-color-white: hsl(0 0% 98%); /* #FAFAFA */
+  --ds-color-brand: hsl(146 63% 57%); /* #4CD688 */
+  --ds-color-transparent: hsl(0 0% 100% / 0); /* #FFFFFF @0 */
+
+  /* Brand Secondary Colors */
+  --ds-color-brand-dark: hsl(148 25% 12%); /* #17261E */
+  --ds-color-brand-light: hsl(145 41% 86%); /* #CDEAD9 */
+  --ds-color-brand-bright: hsl(151 100% 47%); /* #00F07C */
+
+  /* Tertiary Color Scales - Blue */
+  --ds-color-blue-0: hsl(215 50% 90%); /* #D9E3F2 */
+  --ds-color-blue-25: hsl(215 49% 78%); /* #ABC2E2 */
+  --ds-color-blue-50: hsl(214 57% 46%); /* #326CB8 */
+  --ds-color-blue-75: hsl(214 57% 32%); /* #234B80 */
+  --ds-color-blue-100: hsl(215 57% 14%); /* #0F2038 */
+
+  /* Tertiary Color Scales - Green */
+  --ds-color-green-0: hsl(150 40% 90%); /* #DBF0E6 */
+  --ds-color-green-25: hsl(149 41% 79%); /* #B3DFC9 */
+  --ds-color-green-50: hsl(148 43% 49%); /* #47B379 */
+  --ds-color-green-75: hsl(148 43% 34%); /* #317C54 */
+  --ds-color-green-100: hsl(149 43% 15%); /* #163726 */
+
+  /* Tertiary Color Scales - Orange */
+  --ds-color-orange-0: hsl(18 89% 93%); /* #FDE7DD */
+  --ds-color-orange-25: hsl(18 90% 84%); /* #FBC8B1 */
+  --ds-color-orange-50: hsl(18 90% 62%); /* #F57B47 */
+  --ds-color-orange-75: hsl(17 56% 43%); /* #AB5330 */
+  --ds-color-orange-100: hsl(18 57% 20%); /* #502716 */
+
+  /* Tertiary Color Scales - Purple */
+  --ds-color-purple-0: hsl(252 48% 92%); /* #E5E1F4 */
+  --ds-color-purple-25: hsl(252 49% 82%); /* #C4BBE8 */
+  --ds-color-purple-50: hsl(252 49% 57%); /* #715CC7 */
+  --ds-color-purple-75: hsl(252 37% 39%); /* #4D3F88 */
+  --ds-color-purple-100: hsl(253 38% 18%); /* #241C3F */
+
+  /* Tertiary Color Scales - Red */
+  --ds-color-red-0: hsl(2 88% 93%); /* #FDDEDD */
+  --ds-color-red-25: hsl(2 89% 86%); /* #FBBEBC */
+  --ds-color-red-50: hsl(2 89% 65%); /* #F55C56 */
+  --ds-color-red-75: hsl(2 47% 45%); /* #A9403D */
+  --ds-color-red-100: hsl(2 47% 22%); /* #521F1E */
+
+  /* Tertiary Color Scales - Yellow */
+  --ds-color-yellow-0: hsl(42 83% 93%); /* #FCF3DE */
+  --ds-color-yellow-25: hsl(42 85% 85%); /* #F9E6B8 */
+  --ds-color-yellow-50: hsl(42 84% 63%); /* #F0C051 */
+  --ds-color-yellow-75: hsl(41 50% 44%); /* #A88538 */
+  --ds-color-yellow-100: hsl(42 50% 21%); /* #50401B */
+
+  /* Neutral Colors - Pure Gray
+      In light mode (light.css), the lowest number is the lightest.
+      In dark mode (dark.css), this scale is flipped. */
+  /* Neutral Colors - Pure Gray (15 stops, 00–100 scale)
+     Curve: ease-in-out sine in OKLCH L space, endpoints 98%–7%
+     Gaps: 1, 2, 3, 4, 11, 14, 15, 14, 11, 9, 3, 2, 1, 1 */
+  --ds-color-neutral-gray-00: hsl(0 0% 98%); /*   00/100 */
+  --ds-color-neutral-gray-05: hsl(0 0% 97%); /*   05/95 */
+  --ds-color-neutral-gray-10: hsl(0 0% 95%); /*   10/90 */
+  --ds-color-neutral-gray-15: hsl(0 0% 92%); /*   15/85 */
+  --ds-color-neutral-gray-20: hsl(0 0% 88%); /*   20/80 */
+  --ds-color-neutral-gray-30: hsl(0 0% 77%); /*   30/70 */
+  --ds-color-neutral-gray-40: hsl(0 0% 63%); /*   40/60 */
+  --ds-color-neutral-gray-50: hsl(0 0% 48%); /*   50/50 */
+  --ds-color-neutral-gray-60: hsl(0 0% 34%); /*   60/40 */
+  --ds-color-neutral-gray-70: hsl(0 0% 23%); /*   70/30 */
+  --ds-color-neutral-gray-80: hsl(0 0% 14%); /*   80/20 */
+  --ds-color-neutral-gray-85: hsl(0 0% 11%); /*   85/15 */
+  --ds-color-neutral-gray-90: hsl(0 0% 9%); /*   90/10 */
+  --ds-color-neutral-gray-95: hsl(0 0% 8%); /*   95/05 */
+  --ds-color-neutral-gray-100: hsl(0 0% 7%); /*   100/00 */
+
+  /* Neutral Colors - Tinted Scale (green-tinted neutrals, hue ≈ 140)
+       Subtle brand-green tint at very low saturation
+       Comments show inverse step for light/dark mode pairing */
+  --ds-color-neutral-tinted-00: hsl(125 10% 98%); /*  00/100 */
+  --ds-color-neutral-tinted-05: hsl(128 8% 97%); /*  05/95 */
+  --ds-color-neutral-tinted-10: hsl(130 7% 95%); /*  10/90 */
+  --ds-color-neutral-tinted-15: hsl(132 5% 92%); /*  15/85 */
+  --ds-color-neutral-tinted-20: hsl(135 4% 88%); /*  20/80 */
+  --ds-color-neutral-tinted-30: hsl(138 2% 77%); /*  30/70 */
+  --ds-color-neutral-tinted-40: hsl(140 1% 63%); /*  40/60 */
+  --ds-color-neutral-tinted-50: hsl(140 2% 48%); /*  50/50 */
+  --ds-color-neutral-tinted-60: hsl(140 2% 34%); /*  60/40 */
+  --ds-color-neutral-tinted-70: hsl(142 2% 23%); /*  70/30 */
+  --ds-color-neutral-tinted-80: hsl(140 3% 14%); /*  80/20 */
+  --ds-color-neutral-tinted-85: hsl(137 4% 11%); /*  85/15 */
+  --ds-color-neutral-tinted-90: hsl(135 4% 9%); /*  90/10 */
+  --ds-color-neutral-tinted-95: hsl(132 5% 8%); /*  95/05 */
+  --ds-color-neutral-tinted-100: hsl(130 5% 7%); /*  100/00 */
+
+  /* Gradients */
+  --ds-gradient-green-45: linear-gradient(
+    45deg,
+    #00f17d 0%,
+    #4dd694 30%,
+    #4dd694 100%
+  );
+  --ds-gradient-green-180: linear-gradient(
+    180deg,
+    #00f17d 0%,
+    #4dd694 30%,
+    #4dd694 100%
+  );
+
+  /* Neutral fade gradient - subtle overlay from top-left to bottom-right (uses neutral-50 for theme-awareness) */
+  --ds-gradient-neutral-45: linear-gradient(
+    to bottom right,
+    color-mix(
+        in srgb,
+        var(--neutral-50, var(--ds-color-neutral-gray-90)) 2%,
+        transparent
+      )
+      0%,
+    transparent 100%
+  );
+
+  /* Smooth fade gradients - uses --background to match page background */
+  --ds-gradient-fade-up: linear-gradient(
+    to top,
+    var(--background) 0%,
+    var(--background) 15%,
+    color-mix(in oklch, var(--background) 60%, transparent) 25%,
+    color-mix(in oklch, var(--background) 20%, transparent) 35%,
+    transparent 45%
+  );
+  --ds-gradient-fade-down: linear-gradient(
+    to bottom,
+    var(--background) 0%,
+    var(--background) 15%,
+    color-mix(in oklch, var(--background) 60%, transparent) 25%,
+    color-mix(in oklch, var(--background) 20%, transparent) 35%,
+    transparent 45%
+  );
+}

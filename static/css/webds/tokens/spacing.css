@@ -1,0 +1,47 @@
+/* ==========================================================================
+   SPACING TOKENS
+   Single source of truth for all spacing values (margin, padding, gap)
+   Prefixed with --ds-spacing-* to distinguish from semantic theme variables
+
+   Per Tailwind CSS v4 theming pattern, primitives go in @layer base.
+   See: https://github.com/tailwindlabs/tailwindcss/discussions/15600
+   ========================================================================== */
+
+:root {
+  --spacing: 0.25rem; /* 4px */
+  --ds-spacing-0: 0;
+  --ds-spacing-px: 1px;
+  --ds-spacing-0\.5: 0.125rem; /* 2px */
+  --ds-spacing-1: 0.25rem; /* 4px */
+  --ds-spacing-1\.5: 0.375rem; /* 6px */
+  --ds-spacing-2: 0.5rem; /* 8px */
+  --ds-spacing-2\.5: 0.625rem; /* 10px */
+  --ds-spacing-3: 0.75rem; /* 12px */
+  --ds-spacing-3\.5: 0.875rem; /* 14px */
+  --ds-spacing-4: 1rem; /* 16px */
+  --ds-spacing-5: 1.25rem; /* 20px */
+  --ds-spacing-6: 1.5rem; /* 24px */
+  --ds-spacing-7: 1.75rem; /* 28px */
+  --ds-spacing-8: 2rem; /* 32px */
+  --ds-spacing-9: 2.25rem; /* 36px */
+  --ds-spacing-10: 2.5rem; /* 40px */
+  --ds-spacing-11: 2.75rem; /* 44px */
+  --ds-spacing-12: 3rem; /* 48px */
+  --ds-spacing-14: 3.5rem; /* 56px */
+  --ds-spacing-16: 4rem; /* 64px */
+  --ds-spacing-20: 5rem; /* 80px */
+  --ds-spacing-24: 6rem; /* 96px */
+  --ds-spacing-28: 7rem; /* 112px */
+  --ds-spacing-32: 8rem; /* 128px */
+  --ds-spacing-36: 9rem; /* 144px */
+  --ds-spacing-40: 10rem; /* 160px */
+  --ds-spacing-44: 11rem; /* 176px */
+  --ds-spacing-48: 12rem; /* 192px */
+  --ds-spacing-52: 13rem; /* 208px */
+  --ds-spacing-56: 14rem; /* 224px */
+  --ds-spacing-60: 15rem; /* 240px */
+  --ds-spacing-64: 16rem; /* 256px */
+  --ds-spacing-72: 18rem; /* 288px */
+  --ds-spacing-80: 20rem; /* 320px */
+  --ds-spacing-96: 24rem; /* 384px */
+}

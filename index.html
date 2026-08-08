@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="description" content="BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis. Accepted at EUVIP 2026. Small Building Model (SBM) for BIM layout generation.">
@@ -12,25 +12,15 @@
        that returned HTTP 503 and recorded nothing. To enable analytics, re-add the
        gtag snippet with a real G-XXXXXXX measurement ID. -->
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Design system: @higharc/web-ds tokens (vendored under static/css/webds).
+       Fonts (CircularXX, Knockout via Higharc CDN; Geist Mono via Google Fonts)
+       are loaded from the token entrypoint. -->
+  <link rel="stylesheet" href="./static/css/webds/index.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/icon/favicon.svg">
 
-  <!-- JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script>document.documentElement.classList.add('js')</script>
+  <script defer src="./static/js/index.js"></script>
 
   <!-- NOTE: this template originally loaded polyfill.io alongside MathJax. That
        script has been removed: the polyfill.io domain changed ownership in 2024 and
@@ -38,144 +28,161 @@
        prompt. MathJax was removed too, as this page contains no math. To re-enable
        equations, load mathjax@3 (es5/tex-mml-chtml.js) from cdn.jsdelivr.net; it
        needs no polyfill in any currently supported browser. -->
+
+  <!-- Inline SVG icon sprite (replaces Font Awesome / Academicons) -->
 </head>
 <body>
 
+<!-- Phosphor icons (regular weight), matching @phosphor-icons/react used by web-ds -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/>
+    </symbol>
+    <symbol id="i-caret-down" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/>
+    </symbol>
+    <symbol id="i-file-pdf" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z"/>
+    </symbol>
+    <symbol id="i-file-text" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/>
+    </symbol>
+    <symbol id="i-archive" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M224,48H32A16,16,0,0,0,16,64V88a16,16,0,0,0,16,16v88a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V104a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM208,192H48V104H208ZM224,88H32V64H224V88ZM96,136a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,136Z"/>
+    </symbol>
+    <symbol id="i-play-circle" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48.24-94.78-64-40A8,8,0,0,0,100,88v80a8,8,0,0,0,12.24,6.78l64-40a8,8,0,0,0,0-13.56ZM116,153.57V102.43L156.91,128Z"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+    </symbol>
+    <symbol id="i-caret-left" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/>
+    </symbol>
+    <symbol id="i-caret-right" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/>
+    </symbol>
+    <symbol id="i-cube" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M223.68,66.15,135.68,18h0a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32h0l80.34,44L128,120,47.66,76ZM40,90l80,43.78v85.79L40,175.82Zm96,129.57V133.82L216,90v85.78Z"/>
+    </symbol>
+    <symbol id="i-tree-structure" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/>
+    </symbol>
+    <symbol id="i-gear" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- Navigation -->
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+<nav class="site-nav" role="navigation" aria-label="main navigation">
+  <div class="site-nav-inner">
+    <a class="nav-item nav-icon-item" href="https://manuelladron.github.io" aria-label="Author's homepage">
+      <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-home"/></svg>
     </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://manuelladron.github.io">
-        <span class="icon">
-          <i class="fas fa-home"></i>
-        </span>
-      </a>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">More Research</a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://github.com/manuelladron">Author's GitHub</a>
-          <a class="navbar-item" href="https://scholar.google.com/citations?user=yP_0YCsAAAAJ">Google Scholar</a>
-        </div>
+    <div class="nav-dropdown">
+      <button class="nav-item nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+        More Research
+        <svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-caret-down"/></svg>
+      </button>
+      <div class="nav-dropdown-menu">
+        <a class="nav-dropdown-item" href="https://github.com/manuelladron">Author's GitHub</a>
+        <a class="nav-dropdown-item" href="https://scholar.google.com/citations?user=yP_0YCsAAAAJ">Google Scholar</a>
       </div>
     </div>
   </div>
 </nav>
 
+<main>
+
 <!-- Hero Section -->
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">
-            <span class="title-icon">🏗️</span>
-            BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis
-          </h1>
-          <p class="publication-venue is-size-4" style="margin-top:-0.5rem; margin-bottom:1.25rem; font-weight:600; color:#4a9c6d;">
-            Accepted at EUVIP 2026
-            <span class="is-size-6" style="font-weight:400; color:#7a7a7a;">
-              &nbsp;·&nbsp; 14th European Conference on Visual Information Processing, Luxembourg
-            </span>
-          </p>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://manuelladron.github.io/">Manuel Ladron de Guevara</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Jinmo Rhee</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Ardavan Bidgoli</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Vaidas Razgaitis</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Michael Bergin</a><sup>1</sup>
-            </span>
-          </div>
+<header class="hero">
+  <div class="container container-text">
+    <h1 class="hero-title">
+      BIM-Native Tokenization for <span class="brand-underline-thick">Constraint-Aware Room Layout Synthesis</span>
+    </h1>
+    <p class="hero-venue">
+      <span class="venue-accept">Accepted at EUVIP 2026</span>
+      <span class="venue-detail">
+        14th European Conference on Visual Information Processing, Luxembourg
+      </span>
+    </p>
+    <div class="hero-authors">
+      <span class="author-pair">
+        <span class="author-block">
+          <a href="https://manuelladron.github.io/">Manuel Ladron de Guevara</a><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="#">Jinmo Rhee</a><sup>2</sup>,
+        </span>
+      </span>
+      <span class="author-block">
+        <a href="#">Ardavan Bidgoli</a><sup>1</sup>,
+      </span>
+      <span class="author-pair">
+        <span class="author-block">
+          <a href="#">Vaidas Razgaitis</a><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="#">Michael Bergin</a><sup>1</sup>
+        </span>
+      </span>
+    </div>
+    <div class="hero-affiliations">
+      <span class="author-block"><sup>1</sup>Higharc,</span>
+      <span class="author-block"><sup>2</sup>University of Calgary, Canada</span>
+    </div>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Higharc,</span>
-            <span class="author-block"><sup>2</sup>University of Calgary, Canada</span>
-          </div>
-
-          <!-- <div class="is-size-6 publication-venue">
-            <span class="venue-badge">CVPR 2025</span>
-          </div> -->
-
-          <!-- Links -->
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link -->
-              <span class="link-block">
-                <a href="./static/paper/sbm.pdf" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <!-- Supplementary Link -->
-              <span class="link-block">
-                <a href="./static/paper/sbm_supplementary.pdf" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-file-lines"></i></span>
-                  <span>Supplementary</span>
-                </a>
-              </span>
-              <!-- arXiv Link -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2512.04832" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link -->
-              <span class="link-block">
-                <a href="#video" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fas fa-play-circle"></i></span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark" disabled>
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code (Coming Soon)</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Links -->
+    <div class="hero-links">
+      <a href="./static/paper/sbm.pdf" class="btn btn-primary">
+        <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-file-pdf"/></svg>
+        <span>Paper</span>
+      </a>
+      <a href="./static/paper/sbm_supplementary.pdf" class="btn">
+        <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-file-text"/></svg>
+        <span>Supplementary</span>
+      </a>
+      <a href="https://arxiv.org/abs/2512.04832" class="btn">
+        <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-archive"/></svg>
+        <span>arXiv</span>
+      </a>
+      <a href="#video" class="btn">
+        <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-play-circle"/></svg>
+        <span>Video</span>
+      </a>
+      <a href="#" class="btn is-disabled" aria-disabled="true">
+        <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg>
+        <span>Code (Coming Soon)</span>
+      </a>
     </div>
   </div>
-</section>
+</header>
 
 <!-- Hero Figure -->
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="hero-figure">
-        <img src="./static/images/hero.png" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type.">
-        <p class="hero-caption">
-          <strong>Small Building Model (SBM)</strong> is an encoder-decoder Transformer that generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type. Our approach outperforms general-purpose LLMs/VLMs and domain-specific methods.
-        </p>
-      </div>
-    </div>
+<section class="section section-flush">
+  <div class="container">
+    <figure class="figure-panel reveal">
+      <img src="./static/images/hero.png" alt="SBM generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type.">
+      <figcaption class="figure-caption">
+        <strong>Small Building Model (SBM)</strong> is an encoder-decoder Transformer that generates functionally correct and semantically coherent layouts given a room envelope. Each row shows a different room type. Our approach outperforms general-purpose LLMs/VLMs and domain-specific methods.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
 <!-- Video Section -->
 <section class="section" id="video">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title has-text-centered">Demo Video</h2>
-    <div class="publication-video">
+  <div class="container container-text">
+    <h2 class="section-title">Demo Video</h2>
+    <div class="video-panel reveal">
       <video controls playsinline preload="metadata">
         <source src="./static/video/SBM-DDEP-Turbo_no_intro.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -186,99 +193,93 @@
 
 <!-- Abstract Section -->
 <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3 section-title">Abstract</h2>
-        <div class="content has-text-justified abstract-content">
-          <p>
-            We present a <strong>BIM-native tokenization</strong> for room-level layout synthesis in Building Information Modeling (BIM) scenes. The core contribution is representational: we encode each room as a sequence of <strong>BIM-Token Bundles</strong>, realized as columns of a <strong>sparse attribute&ndash;feature matrix</strong> that unifies categorical and continuous attributes of walls, openings, and entities under <strong>wall-referenced</strong> (translation/scale-invariant) coordinates.
-          </p>
-          <p>
-            A <strong>mixed-type embedding module</strong> produces a unified token vector from this matrix; a single Transformer backbone is then trained in two modes: <strong>encoder-only</strong> for room embeddings and retrieval, and <strong>encoder&ndash;decoder</strong> for autoregressive entity placement, which we call <strong>Data-Driven Entity Prediction (DDEP)</strong>. On a controlled same-data benchmark with shared ontology and evaluation harness, DDEP outperforms ATISS and BLT baselines bridged into our representation, with ablations identifying joint continuous-feature embedding and entity ordering as primary drivers. Encoder embeddings cluster rooms by type more tightly than large general-purpose text encoders, which in turn retain an edge on within-type ranking. We frame this work as evidence that modestly sized, domain-specific sequence models over well-designed BIM tokenizations are a useful primitive for constraint-aware spatial generation, complementary to general-purpose LLMs/VLMs which we also benchmark.
-          </p>
-        </div>
-      </div>
+  <div class="container container-text">
+    <h2 class="section-title">Abstract</h2>
+    <div class="prose reveal">
+      <p>
+        We present a <strong>BIM-native tokenization</strong> for room-level layout synthesis in Building Information Modeling (BIM) scenes. The core contribution is representational: we encode each room as a sequence of <strong>BIM-Token Bundles</strong>, realized as columns of a <strong>sparse attribute&ndash;feature matrix</strong> that unifies categorical and continuous attributes of walls, openings, and entities under <strong>wall-referenced</strong> (translation/scale-invariant) coordinates.
+      </p>
+      <p>
+        A <strong>mixed-type embedding module</strong> produces a unified token vector from this matrix; a single Transformer backbone is then trained in two modes: <strong>encoder-only</strong> for room embeddings and retrieval, and <strong>encoder&ndash;decoder</strong> for autoregressive entity placement, which we call <strong>Data-Driven Entity Prediction (DDEP)</strong>. On a controlled same-data benchmark with shared ontology and evaluation harness, DDEP outperforms ATISS and BLT baselines bridged into our representation, with ablations identifying joint continuous-feature embedding and entity ordering as primary drivers. Encoder embeddings cluster rooms by type more tightly than large general-purpose text encoders, which in turn retain an edge on within-type ranking. We frame this work as evidence that modestly sized, domain-specific sequence models over well-designed BIM tokenizations are a useful primitive for constraint-aware spatial generation, complementary to general-purpose LLMs/VLMs which we also benchmark.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- Method Overview Section -->
-<section class="section method-section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title has-text-centered">How Does It Work?</h2>
-    
-    <div class="content has-text-justified">
-      <p>
-        Our goal is to learn a unified representation for BIM scenes that enables both <strong>retrieval</strong> (finding similar rooms) and <strong>generation</strong> (placing furniture, doors, and fixtures). SBM takes as input a room envelope—walls, doors, windows—and produces either room embeddings or a complete layout with placed entities.
-      </p>
-    </div>
+<section class="section">
+  <div class="container container-text">
+    <h2 class="section-title">How Does It Work?</h2>
 
-    <!-- Architecture Figure -->
-    <div class="method-figure">
-      <img src="./static/images/model_overview.png" alt="SBM Architecture Overview">
-      <p class="figure-caption">
-        <strong>Model Overview.</strong> (a) BIM data extraction and assembly into a discrete set of token bundles. (b) SBM encoder stack processes the tokenized feature-attribute matrix and outputs a room representation. (c) SBM decoder stack consumes the room representation as memory to the cross-attention layers and the room entities as inputs, trained on next token prediction. (d) Downstream use cases. Retrieval and unguided layout generation (DDEP) are evaluated in the paper; the user-guided path through an agentic layer is a prospective integration that BIM-native output tokens enable but that we do not evaluate.
+    <div class="prose reveal">
+      <p>
+        Our goal is to learn a unified representation for BIM scenes that enables both <strong>retrieval</strong> (finding similar rooms) and <strong>generation</strong> (placing furniture, doors, and fixtures). SBM takes as input a room envelope&mdash;walls, doors, windows&mdash;and produces either room embeddings or a complete layout with placed entities.
       </p>
     </div>
+  </div>
+
+  <div class="container">
+    <!-- Architecture Figure -->
+    <figure class="figure-panel reveal">
+      <img src="./static/images/model_overview.png" alt="SBM Architecture Overview">
+      <figcaption class="figure-caption">
+        <strong>Model Overview.</strong> (a) BIM data extraction and assembly into a discrete set of token bundles. (b) SBM encoder stack processes the tokenized feature-attribute matrix and outputs a room representation. (c) SBM decoder stack consumes the room representation as memory to the cross-attention layers and the room entities as inputs, trained on next token prediction. (d) Downstream use cases. Retrieval and unguided layout generation (DDEP) are evaluated in the paper; the user-guided path through an agentic layer is a prospective integration that BIM-native output tokens enable but that we do not evaluate.
+      </figcaption>
+    </figure>
 
     <!-- Key Components -->
-    <div class="columns is-multiline method-cards">
-      <div class="column is-one-third">
-        <div class="method-card">
-          <div class="method-card-icon">
-            <i class="fas fa-cubes"></i>
-          </div>
-          <h4 class="method-card-title">BIM-Token Bundles</h4>
-          <p>We introduce a normalized hierarchical tokenizer that encodes room topology, entity attributes, wall-referenced geometry, and relational structure into compact token bundles realized as rows of a sparse attribute-feature matrix.</p>
+    <div class="card-grid card-grid-3">
+      <div class="method-card reveal">
+        <div class="method-card-icon">
+          <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#i-cube"/></svg>
         </div>
+        <h4 class="method-card-title">BIM-Token Bundles</h4>
+        <p>We introduce a normalized hierarchical tokenizer that encodes room topology, entity attributes, wall-referenced geometry, and relational structure into compact token bundles realized as rows of a sparse attribute-feature matrix.</p>
       </div>
-      <div class="column is-one-third">
-        <div class="method-card">
-          <div class="method-card-icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <h4 class="method-card-title">Mixed-Type Embeddings</h4>
-          <p>A unified embedding module handles both categorical and continuous features, learning joint representations that preserve the compositional structure of architectural elements.</p>
+      <div class="method-card reveal">
+        <div class="method-card-icon">
+          <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#i-tree-structure"/></svg>
         </div>
+        <h4 class="method-card-title">Mixed-Type Embeddings</h4>
+        <p>A unified embedding module handles both categorical and continuous features, learning joint representations that preserve the compositional structure of architectural elements.</p>
       </div>
-      <div class="column is-one-third">
-        <div class="method-card">
-          <div class="method-card-icon">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <h4 class="method-card-title">Dual-Mode Backbone</h4>
-          <p>A single Transformer supports encoder-only room embeddings for retrieval and encoder-decoder DDEP for autoregressive layout generation.</p>
+      <div class="method-card reveal">
+        <div class="method-card-icon">
+          <svg class="icon" width="22" height="22" aria-hidden="true"><use href="#i-gear"/></svg>
         </div>
+        <h4 class="method-card-title">Dual-Mode Backbone</h4>
+        <p>A single Transformer supports encoder-only room embeddings for retrieval and encoder-decoder DDEP for autoregressive layout generation.</p>
       </div>
     </div>
+  </div>
 
+  <div class="container container-text">
     <!-- Additional Explanation -->
-    <div class="content has-text-justified">
-      <h3 class="title is-4">Encoder-Only Pathway</h3>
+    <div class="prose reveal">
+      <h3 class="subsection-title">Encoder-Only Pathway</h3>
       <p>
-        The encoder-only pathway produces high-fidelity room embeddings that capture geometric, topological, and semantic properties. These embeddings cluster reliably by room type and topology, achieving <strong>NMI: 0.726</strong> (2.0× better than text embedding baselines) and <strong>near-perfect type-constrained triplet accuracy (99.9%)</strong>.
+        The encoder-only pathway produces high-fidelity room embeddings that capture geometric, topological, and semantic properties. These embeddings cluster reliably by room type and topology, achieving <strong>NMI: 0.726</strong> (2.0&times; better than text embedding baselines) and <strong>near-perfect type-constrained triplet accuracy (99.9%)</strong>.
       </p>
 
-      <h3 class="title is-4">Data-Driven Entity Prediction (DDEP)</h3>
+      <h3 class="subsection-title">Data-Driven Entity Prediction (DDEP)</h3>
       <p>
         In DDEP mode, the encoder-decoder pipeline autoregressively places room entities (props and casework) conditioned on the room envelope. DDEP produces functionally sound layouts with:
       </p>
       <ul>
-        <li><strong>Near-complete inventory satisfaction</strong> — placing required furniture and fixtures</li>
-        <li><strong>State-of-the-art navigability</strong> — ensuring walkable paths through the room</li>
-        <li><strong>Lowest violation rates</strong> — fewer collisions and boundary violations than LLM/VLM baselines</li>
+        <li><strong>Near-complete inventory satisfaction</strong> &mdash; placing required furniture and fixtures</li>
+        <li><strong>State-of-the-art navigability</strong> &mdash; ensuring walkable paths through the room</li>
+        <li><strong>Lowest violation rates</strong> &mdash; fewer collisions and boundary violations than LLM/VLM baselines</li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- Evaluation Section -->
-<section class="section evaluation-section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title has-text-centered">Evaluation</h2>
-    
-    <div class="content has-text-justified">
+<section class="section">
+  <div class="container container-text">
+    <h2 class="section-title">Evaluation</h2>
+
+    <div class="prose reveal">
       <p>
         We evaluate SBM under two complementary protocols, exactly as reported in the EUVIP&nbsp;2026 paper.
         The <strong>controlled same-data benchmark</strong> is the lead result: every method is trained from
@@ -294,27 +295,29 @@
     </div>
 
     <!-- Controlled same-data benchmark (paper Table I) -->
-    <h3 class="title is-4" style="margin-top:2rem;">Controlled same-data benchmark</h3>
-    <div class="table-container">
-      <table class="table is-fullwidth is-narrow is-hoverable">
-        <thead>
-          <tr>
-            <th>Method</th><th>Cov. &uarr;</th><th>Nav &uarr;</th><th>SR &uarr;</th><th>DF &darr;</th><th>OC &darr;</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>ATISS <em>(same-data)</em></td><td>40.8 &plusmn; 23.6</td><td>&minus;30.3 &plusmn; 24.0</td><td>0.03</td><td>0.97</td><td><strong>0.5</strong></td></tr>
-          <tr><td>BLT <em>(same-data)</em></td><td>17.8 &plusmn; 20.4</td><td>&minus;18.6 &plusmn; 42.7</td><td>0.12</td><td>0.88</td><td>35.7</td></tr>
-          <tr style="background:#f0f8f4;">
-            <td><strong>DDEP (ours)</strong></td><td><strong>54.9 &plusmn; 38.3</strong></td><td><strong>14.6 &plusmn; 56.0</strong></td><td><strong>0.36</strong></td><td><strong>0.60</strong></td><td>13.4</td></tr>
-          <tr><td colspan="6" class="has-text-centered"><em>DDEP ablations</em></td></tr>
-          <tr><td>&nbsp;&nbsp;Wall-only</td><td>50.8</td><td>9.6</td><td>0.32</td><td>0.63</td><td>12.7</td></tr>
-          <tr><td>&nbsp;&nbsp;No continuous groups</td><td>42.6</td><td>0.7</td><td>0.25</td><td>0.69</td><td>13.4</td></tr>
-          <tr><td>&nbsp;&nbsp;No edge coordinates</td><td>56.7</td><td>14.4</td><td>0.35</td><td>0.60</td><td>14.5</td></tr>
-          <tr><td>&nbsp;&nbsp;Order: <em>t</em> first</td><td>42.6</td><td>4.1</td><td>0.29</td><td>0.70</td><td>10.6</td></tr>
-          <tr><td>&nbsp;&nbsp;Order: edge, <em>t</em> desc.</td><td>46.5</td><td>7.8</td><td>0.31</td><td>0.66</td><td>13.4</td></tr>
-        </tbody>
-      </table>
+    <h3 class="subsection-title">Controlled same-data benchmark</h3>
+    <div class="table-panel reveal">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Method</th><th>Cov. &uarr;</th><th>Nav &uarr;</th><th>SR &uarr;</th><th>DF &darr;</th><th>OC &darr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ATISS <em>(same-data)</em></td><td>40.8 &plusmn; 23.6</td><td>&minus;30.3 &plusmn; 24.0</td><td>0.03</td><td>0.97</td><td><strong>0.5</strong></td></tr>
+            <tr><td>BLT <em>(same-data)</em></td><td>17.8 &plusmn; 20.4</td><td>&minus;18.6 &plusmn; 42.7</td><td>0.12</td><td>0.88</td><td>35.7</td></tr>
+            <tr class="is-ours">
+              <td><strong>DDEP (ours)</strong></td><td><strong>54.9 &plusmn; 38.3</strong></td><td><strong>14.6 &plusmn; 56.0</strong></td><td><strong>0.36</strong></td><td><strong>0.60</strong></td><td>13.4</td></tr>
+            <tr><td colspan="6" class="row-group"><em>DDEP ablations</em></td></tr>
+            <tr><td class="td-indent">Wall-only</td><td>50.8</td><td>9.6</td><td>0.32</td><td>0.63</td><td>12.7</td></tr>
+            <tr><td class="td-indent">No continuous groups</td><td>42.6</td><td>0.7</td><td>0.25</td><td>0.69</td><td>13.4</td></tr>
+            <tr><td class="td-indent">No edge coordinates</td><td>56.7</td><td>14.4</td><td>0.35</td><td>0.60</td><td>14.5</td></tr>
+            <tr><td class="td-indent">Order: <em>t</em> first</td><td>42.6</td><td>4.1</td><td>0.29</td><td>0.70</td><td>10.6</td></tr>
+            <tr><td class="td-indent">Order: edge, <em>t</em> desc.</td><td>46.5</td><td>7.8</td><td>0.31</td><td>0.66</td><td>13.4</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p class="figure-caption">
         Shared 1,225-room geometry-valid test subset. ATISS's near-zero OC reflects sparse outputs that avoid
         collisions while leaving almost all targets unreachable; BLT shows the opposite failure mode. Removing
@@ -326,35 +329,37 @@
     </div>
 
     <!-- Deployment-style frontier benchmark (paper Table II, full per-model) -->
-    <h3 class="title is-4" style="margin-top:2.5rem;">Deployment-style benchmark vs. frontier models</h3>
-    <div class="table-container">
-      <table class="table is-fullwidth is-narrow is-hoverable">
-        <thead>
-          <tr><th>Method</th><th>Cov. &uarr;</th><th>Nav &uarr;</th><th>OC &darr;</th><th>Latency (s) &darr;</th></tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="5" class="has-text-centered"><em>Text-only LLMs</em></td></tr>
-          <tr><td>Claude Opus 4.6</td><td>58.9</td><td>&minus;0.8</td><td>11.3</td><td>15.6</td></tr>
-          <tr><td>Claude Sonnet 4.6</td><td>64.9</td><td>0.3</td><td>10.5</td><td>81.2</td></tr>
-          <tr><td>Claude Haiku 4.5</td><td>55.3</td><td>4.4</td><td>15.2</td><td>7.0</td></tr>
-          <tr><td>GPT-5.2 <sup>&dagger;</sup></td><td>47.6</td><td>16.8</td><td>13.0</td><td>55.1</td></tr>
-          <tr><td>Gemini 3.1 Pro <sup>&ddagger;</sup></td><td>63.7</td><td>20.5</td><td>9.2</td><td>67.1</td></tr>
-          <tr><td>Codex 5.3</td><td>68.3</td><td>18.9</td><td>9.8</td><td>20.8</td></tr>
-          <tr><td>Qwen 3.5</td><td>64.6</td><td>3.1</td><td>13.6</td><td>19.0</td></tr>
-          <tr><td colspan="5" class="has-text-centered"><em>Vision-language models (floorplan-conditioned)</em></td></tr>
-          <tr><td>Claude Opus 4.6</td><td>61.9</td><td>55.5</td><td>8.2</td><td>15.3</td></tr>
-          <tr><td>Claude Sonnet 4.6</td><td>65.6</td><td>34.6</td><td>11.0</td><td>14.8</td></tr>
-          <tr><td>Claude Haiku 4.5</td><td>60.7</td><td>25.2</td><td>16.2</td><td>6.9</td></tr>
-          <tr><td>GPT-5.2 <sup>&dagger;</sup></td><td>57.0</td><td>34.9</td><td>12.1</td><td>101.7</td></tr>
-          <tr><td>Gemini 3.1 Pro <sup>&sect;</sup></td><td>86.5</td><td>47.8</td><td>2.2</td><td>&ndash;</td></tr>
-          <tr><td>Qwen 3.5 <sup>&dagger;</sup></td><td>60.7</td><td>27.1</td><td>12.8</td><td>84.1</td></tr>
-          <tr><td colspan="5" class="has-text-centered"><em>Domain-specific methods</em></td></tr>
-          <tr><td>LayoutVLM</td><td>&ndash;</td><td>40.3</td><td>3.8</td><td>145.0</td></tr>
-          <tr><td>FlairGPT</td><td>46.6</td><td>28.2</td><td>3.9</td><td>1133.6</td></tr>
-          <tr style="background:#f0f8f4;">
-            <td><strong>DDEP (ours)</strong></td><td><strong>98.1</strong></td><td><strong>79.2</strong></td><td><strong>1.9</strong></td><td><strong>3.18</strong></td></tr>
-        </tbody>
-      </table>
+    <h3 class="subsection-title">Deployment-style benchmark vs. frontier models</h3>
+    <div class="table-panel reveal">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Method</th><th>Cov. &uarr;</th><th>Nav &uarr;</th><th>OC &darr;</th><th>Latency (s) &darr;</th></tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="5" class="row-group"><em>Text-only LLMs</em></td></tr>
+            <tr><td>Claude Opus 4.6</td><td>58.9</td><td>&minus;0.8</td><td>11.3</td><td>15.6</td></tr>
+            <tr><td>Claude Sonnet 4.6</td><td>64.9</td><td>0.3</td><td>10.5</td><td>81.2</td></tr>
+            <tr><td>Claude Haiku 4.5</td><td>55.3</td><td>4.4</td><td>15.2</td><td>7.0</td></tr>
+            <tr><td>GPT-5.2 <sup>&dagger;</sup></td><td>47.6</td><td>16.8</td><td>13.0</td><td>55.1</td></tr>
+            <tr><td>Gemini 3.1 Pro <sup>&ddagger;</sup></td><td>63.7</td><td>20.5</td><td>9.2</td><td>67.1</td></tr>
+            <tr><td>Codex 5.3</td><td>68.3</td><td>18.9</td><td>9.8</td><td>20.8</td></tr>
+            <tr><td>Qwen 3.5</td><td>64.6</td><td>3.1</td><td>13.6</td><td>19.0</td></tr>
+            <tr><td colspan="5" class="row-group"><em>Vision-language models (floorplan-conditioned)</em></td></tr>
+            <tr><td>Claude Opus 4.6</td><td>61.9</td><td>55.5</td><td>8.2</td><td>15.3</td></tr>
+            <tr><td>Claude Sonnet 4.6</td><td>65.6</td><td>34.6</td><td>11.0</td><td>14.8</td></tr>
+            <tr><td>Claude Haiku 4.5</td><td>60.7</td><td>25.2</td><td>16.2</td><td>6.9</td></tr>
+            <tr><td>GPT-5.2 <sup>&dagger;</sup></td><td>57.0</td><td>34.9</td><td>12.1</td><td>101.7</td></tr>
+            <tr><td>Gemini 3.1 Pro <sup>&sect;</sup></td><td>86.5</td><td>47.8</td><td>2.2</td><td>&ndash;</td></tr>
+            <tr><td>Qwen 3.5 <sup>&dagger;</sup></td><td>60.7</td><td>27.1</td><td>12.8</td><td>84.1</td></tr>
+            <tr><td colspan="5" class="row-group"><em>Domain-specific methods</em></td></tr>
+            <tr><td>LayoutVLM</td><td>&ndash;</td><td>40.3</td><td>3.8</td><td>145.0</td></tr>
+            <tr><td>FlairGPT</td><td>46.6</td><td>28.2</td><td>3.9</td><td>1133.6</td></tr>
+            <tr class="is-ours">
+              <td><strong>DDEP (ours)</strong></td><td><strong>98.1</strong></td><td><strong>79.2</strong></td><td><strong>1.9</strong></td><td><strong>3.18</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
       <p class="figure-caption">
         50-room held-out set. All models receive the same tuned prompt with an explicit coordinate system,
         wall-condition guidance, a room-type-filtered entity catalog for information parity with DDEP, and a
@@ -367,38 +372,26 @@
     </div>
 
     <!-- Key Results Summary -->
-    <div class="columns is-multiline" style="margin-top: 2rem;">
-      <div class="column is-one-quarter">
-        <div class="has-text-centered">
-          <p class="heading">Specification</p>
-          <p class="title is-4" style="color: #4a9c6d;">Near-Complete</p>
-          <p class="is-size-7">Inventory Satisfaction</p>
-        </div>
+    <div class="stat-grid stat-grid-4">
+      <div class="stat reveal">
+        <p class="stat-label">Specification</p>
+        <p class="stat-value stat-value-sm"><span class="brand-underline-thick">Near-Complete</span> Inventory Satisfaction</p>
       </div>
-      <div class="column is-one-quarter">
-        <div class="has-text-centered">
-          <p class="heading">Navigability</p>
-          <p class="title is-4" style="color: #4a9c6d;">State-of-the-Art</p>
-          <p class="is-size-7">Walkable Paths</p>
-        </div>
+      <div class="stat reveal">
+        <p class="stat-label">Navigability</p>
+        <p class="stat-value stat-value-sm"><span class="brand-underline-thick">State-of-the-Art</span> Walkable Paths</p>
       </div>
-      <div class="column is-one-quarter">
-        <div class="has-text-centered">
-          <p class="heading">Overlap</p>
-          <p class="title is-4" style="color: #4a9c6d;">Lowest</p>
-          <p class="is-size-7">Collision Rate</p>
-        </div>
+      <div class="stat reveal">
+        <p class="stat-label">Overlap</p>
+        <p class="stat-value stat-value-sm"><span class="brand-underline-thick">Lowest</span> Collision Rate</p>
       </div>
-      <div class="column is-one-quarter">
-        <div class="has-text-centered">
-          <p class="heading">Clearance</p>
-          <p class="title is-4" style="color: #4a9c6d;">Lowest</p>
-          <p class="is-size-7">Boundary Violations</p>
-        </div>
+      <div class="stat reveal">
+        <p class="stat-label">Clearance</p>
+        <p class="stat-value stat-value-sm"><span class="brand-underline-thick">Lowest</span> Boundary Violations</p>
       </div>
     </div>
 
-    <div class="content has-text-justified" style="margin-top: 2rem;">
+    <div class="prose reveal">
       <p>
         Our results demonstrate that <strong>modestly sized, domain-specific sequence models</strong> over well-designed BIM tokenizations can outperform much larger general-purpose systems on layout quality. DDEP delivers functionally sound layouts that satisfy design specifications while maintaining geometric validity and constraint satisfaction.
       </p>
@@ -407,140 +400,143 @@
 </section>
 
 <!-- Embedding Results Section -->
-<section class="section results-section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title has-text-centered">Room Embeddings</h2>
-    
-    <div class="content has-text-justified">
+<section class="section">
+  <div class="container container-text">
+    <h2 class="section-title">Room Embeddings</h2>
+
+    <div class="prose reveal">
       <p>
         In encoder-only mode, SBM produces high-fidelity room embeddings that capture geometric, topological, and semantic properties. We compare against strong text embedding baselines (E5-Large-v2, BGE, GTE) on clustering quality and type-constrained retrieval.
       </p>
     </div>
+  </div>
 
+  <div class="container">
     <!-- Clustering Visualization -->
-    <div class="results-figure">
+    <figure class="figure-panel reveal">
       <img src="./static/images/Clustering.png" alt="UMAP visualization comparing SBM and E5 embeddings">
-      <p class="figure-caption">
+      <figcaption class="figure-caption">
         <strong>UMAP visualization of room embeddings</strong> colored by room type category. SBM embeddings (left, NMI 0.726) form well-separated clusters with distinct boundaries between room types, while E5-Large-v2 embeddings (right, NMI 0.371) show intermingled clusters with blurred boundaries. The roughly 2&times; higher NMI reflects SBM's specialization in geometric and spatial structure rather than lexical similarity.
-      </p>
-    </div>
+      </figcaption>
+    </figure>
+  </div>
 
+  <div class="container container-text">
     <!-- Embedding Metrics -->
-    <div class="columns is-multiline" style="margin-top: 2rem;">
-      <div class="column is-one-third">
-        <div class="has-text-centered">
-          <p class="heading">NMI Score</p>
-          <p class="title is-3" style="color: #4a9c6d;">0.726</p>
-          <p class="is-size-7">2.0× better than text baselines</p>
-        </div>
+    <div class="stat-grid stat-grid-3">
+      <div class="stat reveal">
+        <p class="stat-label">NMI Score</p>
+        <p class="stat-value brand-underline-thick">0.726</p>
+        <p class="stat-sub">2.0&times; better than text baselines</p>
       </div>
-      <div class="column is-one-third">
-        <div class="has-text-centered">
-          <p class="heading">Triplet Accuracy</p>
-          <p class="title is-3" style="color: #4a9c6d;">99.9%</p>
-          <p class="is-size-7">Type-constrained retrieval</p>
-        </div>
+      <div class="stat reveal">
+        <p class="stat-label">Triplet Accuracy</p>
+        <p class="stat-value brand-underline-thick">99.9%</p>
+        <p class="stat-sub">Type-constrained retrieval</p>
       </div>
-      <div class="column is-one-third">
-        <div class="has-text-centered">
-          <p class="heading">Entity Overlap</p>
-          <p class="title is-3" style="color: #4a9c6d;">77.0%</p>
-          <p class="is-size-7">Retrieved rooms share similar furniture</p>
-        </div>
+      <div class="stat reveal">
+        <p class="stat-label">Entity Overlap</p>
+        <p class="stat-value brand-underline-thick">77.0%</p>
+        <p class="stat-sub">Retrieved rooms share similar furniture</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GIF Grid Section -->
-<section class="section gif-grid-section">
+<section class="section">
   <div class="container">
-    <h2 class="title is-3 section-title has-text-centered">Layout Generation Examples</h2>
-    <p class="has-text-centered" style="margin-bottom: 2rem; color: var(--color-text-muted);">
+    <h2 class="section-title">Layout Generation Examples</h2>
+    <p class="section-subtitle">
       SBM autoregressively places entities across diverse room types
     </p>
     <div class="gif-grid">
       <!-- Row 1 -->
-      <div class="gif-item"><img src="./static/gifs/kitchen-ezgif.com-video-to-gif-converter.gif" alt="Kitchen layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/living-ezgif.com-video-to-gif-converter.gif" alt="Living room layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/dining-ezgif.com-video-to-gif-converter.gif" alt="Dining room layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/bedroom1-ezgif.com-video-to-gif-converter.gif" alt="Bedroom layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/kitchen-ezgif.com-video-to-gif-converter.gif" alt="Kitchen layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/living-ezgif.com-video-to-gif-converter.gif" alt="Living room layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/dining-ezgif.com-video-to-gif-converter.gif" alt="Dining room layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/bedroom1-ezgif.com-video-to-gif-converter.gif" alt="Bedroom layout generation"></div>
       <!-- Row 2 -->
-      <div class="gif-item"><img src="./static/gifs/office-ezgif.com-video-to-gif-converter.gif" alt="Office layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/bedroom3-ezgif.com-video-to-gif-converter.gif" alt="Bedroom layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/bathfull1-ezgif.com-video-to-gif-converter.gif" alt="Bathroom layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/garage-ezgif.com-video-to-gif-converter.gif" alt="Garage layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/office-ezgif.com-video-to-gif-converter.gif" alt="Office layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/bedroom3-ezgif.com-video-to-gif-converter.gif" alt="Bedroom layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/bathfull1-ezgif.com-video-to-gif-converter.gif" alt="Bathroom layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/garage-ezgif.com-video-to-gif-converter.gif" alt="Garage layout generation"></div>
       <!-- Row 3 -->
-      <div class="gif-item"><img src="./static/gifs/bathfull2-ezgif.com-video-to-gif-converter.gif" alt="Bathroom layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/bedroom2-ezgif.com-video-to-gif-converter.gif" alt="Bedroom layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/laundry-ezgif.com-video-to-gif-converter.gif" alt="Laundry room layout generation"></div>
-      <div class="gif-item"><img src="./static/gifs/powder-ezgif.com-video-to-gif-converter.gif" alt="Powder room layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/bathfull2-ezgif.com-video-to-gif-converter.gif" alt="Bathroom layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/bedroom2-ezgif.com-video-to-gif-converter.gif" alt="Bedroom layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/laundry-ezgif.com-video-to-gif-converter.gif" alt="Laundry room layout generation"></div>
+      <div class="gif-item reveal"><img loading="lazy" src="./static/gifs/powder-ezgif.com-video-to-gif-converter.gif" alt="Powder room layout generation"></div>
     </div>
   </div>
 </section>
 
-<!-- Gallery Carousel -->
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3 section-title has-text-centered" style="margin-bottom: 2rem;">Gallery</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="carousel-item">
-          <img src="./static/images/ddep_qual.png" alt="DDEP qualitative results across different room types">
-        </div>
-        <div class="carousel-item">
-          <img src="./static/images/DDEP_resulsts.png" alt="DDEP layout generation results">
-        </div>
-        <div class="carousel-item">
-          <img src="./static/images/HERO_supp_v2.jpg" alt="Additional layout examples">
-        </div>
-        <div class="carousel-item">
-          <img src="./static/images/nav_masterbed-1.jpg" alt="Navigability analysis in master bedroom">
-        </div>
+<!-- Gallery -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Gallery</h2>
+  </div>
+  <div class="gallery reveal">
+    <div class="gallery-rail gallery-rail-left">
+      <button class="gallery-btn" type="button" data-dir="-1" aria-label="Previous image">
+        <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-caret-left"/></svg>
+      </button>
+    </div>
+    <div class="gallery-rail gallery-rail-right">
+      <button class="gallery-btn" type="button" data-dir="1" aria-label="Next image">
+        <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-caret-right"/></svg>
+      </button>
+    </div>
+    <div class="gallery-track" tabindex="0">
+      <div class="gallery-item">
+        <img loading="lazy" src="./static/images/ddep_qual.png" alt="DDEP qualitative results across different room types">
       </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="./static/images/DDEP_resulsts.png" alt="DDEP layout generation results">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="./static/images/HERO_supp_v2.jpg" alt="Additional layout examples">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="./static/images/nav_masterbed-1.jpg" alt="Navigability analysis in master bedroom">
+      </div>
+    </div>
+    <div class="gallery-controls-rail">
+      <div class="gallery-dots" role="tablist" aria-label="Gallery position"></div>
     </div>
   </div>
 </section>
 
 <!-- Key Contributions -->
-<section class="section contributions-section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 section-title has-text-centered">Key Contributions</h2>
-    <div class="columns is-multiline">
-      <div class="column is-half">
-        <div class="contribution-item">
-          <span class="contribution-number">1</span>
-          <div class="contribution-content">
-            <h4>Normalized Hierarchical Tokenization</h4>
-            <p>A BIM tokenization scheme with a mixed-type embedding module that unifies categorical and continuous architectural features.</p>
-          </div>
+<section class="section">
+  <div class="container container-text">
+    <h2 class="section-title">Key Contributions</h2>
+    <div class="contribution-grid">
+      <div class="contribution-item reveal">
+        <span class="contribution-number">1</span>
+        <div class="contribution-content">
+          <h4>Normalized Hierarchical Tokenization</h4>
+          <p>A BIM tokenization scheme with a mixed-type embedding module that unifies categorical and continuous architectural features.</p>
         </div>
       </div>
-      <div class="column is-half">
-        <div class="contribution-item">
-          <span class="contribution-number">2</span>
-          <div class="contribution-content">
-            <h4>Unified Transformer Backbone</h4>
-            <p>SBM supports both retrieval (encoder-only) and generative layout synthesis (encoder-decoder DDEP) in a single architecture.</p>
-          </div>
+      <div class="contribution-item reveal">
+        <span class="contribution-number">2</span>
+        <div class="contribution-content">
+          <h4>Unified Transformer Backbone</h4>
+          <p>SBM supports both retrieval (encoder-only) and generative layout synthesis (encoder-decoder DDEP) in a single architecture.</p>
         </div>
       </div>
-      <div class="column is-half">
-        <div class="contribution-item">
-          <span class="contribution-number">3</span>
-          <div class="contribution-content">
-            <h4>Comprehensive Evaluation</h4>
-            <p>Rigorous benchmarks on a professional BIM dataset demonstrating superior scene coherence, geometric validity, and constraint satisfaction.</p>
-          </div>
+      <div class="contribution-item reveal">
+        <span class="contribution-number">3</span>
+        <div class="contribution-content">
+          <h4>Comprehensive Evaluation</h4>
+          <p>Rigorous benchmarks on a professional BIM dataset demonstrating superior scene coherence, geometric validity, and constraint satisfaction.</p>
         </div>
       </div>
-      <div class="column is-half">
-        <div class="contribution-item">
-          <span class="contribution-number">4</span>
-          <div class="contribution-content">
-            <h4>Domain-Specific Excellence</h4>
-            <p>Modestly sized, domain-specific models over well-designed tokenizations outperform much larger general-purpose systems on layout quality.</p>
-          </div>
+      <div class="contribution-item reveal">
+        <span class="contribution-number">4</span>
+        <div class="contribution-content">
+          <h4>Domain-Specific Excellence</h4>
+          <p>Modestly sized, domain-specific models over well-designed tokenizations outperform much larger general-purpose systems on layout quality.</p>
         </div>
       </div>
     </div>
@@ -549,9 +545,14 @@
 
 <!-- BibTeX Section -->
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3 section-title">BibTeX</h2>
-    <pre><code>@inproceedings{sbm2026euvip,
+  <div class="container container-text">
+    <h2 class="section-title">BibTeX</h2>
+    <div class="bibtex-panel reveal">
+      <button class="bibtex-copy" type="button" aria-label="Copy BibTeX to clipboard" title="Copy BibTeX">
+        <svg class="icon icon-copy" width="16" height="16" aria-hidden="true"><use href="#i-copy"/></svg>
+        <svg class="icon icon-check" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>
+      </button>
+      <pre><code>@inproceedings{sbm2026euvip,
   title={BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis},
   author={Ladron de Guevara, Manuel and Rhee, Jinmo and Bidgoli, Ardavan and Razgaitis, Vaidas and Bergin, Michael},
   booktitle={Proceedings of the 14th European Conference on Visual Information Processing (EUVIP)},
@@ -560,38 +561,28 @@
   archivePrefix={arXiv},
   primaryClass={cs.CV}
 }</code></pre>
+    </div>
   </div>
 </section>
 
+</main>
+
 <!-- Footer -->
-<footer class="footer">
+<footer class="site-footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="./static/paper/sbm.pdf">
-        <i class="fas fa-file-pdf"></i>
+    <div class="footer-links">
+      <a class="icon-link" href="./static/paper/sbm.pdf" aria-label="Paper PDF">
+        <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-file-pdf"/></svg>
       </a>
-      <a class="icon-link" href="https://github.com/manuelladron" class="external-link">
-        <i class="fab fa-github"></i>
+      <a class="icon-link" href="https://github.com/manuelladron" aria-label="GitHub">
+        <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-github"/></svg>
       </a>
-      <a class="icon-link" href="https://www.higharc.com/" class="external-link" title="Higharc">
-        <img src="./static/icon/Higharc Mark - White.svg" alt="Higharc" style="height: 1.5em; vertical-align: middle;">
+      <a class="icon-link" href="https://www.higharc.com/" title="Higharc">
+        <img src="./static/icon/Higharc Mark - White.svg" alt="Higharc">
       </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content has-text-centered">
-          <p>
-            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Website template based on the <a href="https://nerfies.github.io/">Nerfies</a> project page.
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </footer>
 
 </body>
 </html>
-

@@ -1,0 +1,58 @@
+/*
+ * Semantic theme layer — flattened by hand from @higharc/web-ds
+ * src/styles/themes/light.css + themes/domains/marketing/theme.css,
+ * keeping only what a static page can consume (no Tailwind mappings).
+ * Every value resolves to a --ds-* primitive from ./tokens.
+ */
+
+:root {
+  /* Surfaces + ink (light theme) */
+  --background: var(--ds-color-neutral-gray-00);
+  --foreground: var(--ds-color-black);
+  --foreground-inverse: var(--ds-color-white);
+  --card: hsl(0 0% 100%);
+  --card-foreground: var(--ds-color-neutral-gray-90);
+  --muted: var(--ds-color-neutral-gray-10);
+  --muted-foreground: var(--ds-color-neutral-gray-60);
+  --subtle-foreground: var(--ds-color-neutral-gray-50);
+
+  /* Brand */
+  --brand: var(--ds-color-brand);
+  --brand-dark: var(--ds-color-brand-dark);
+  --brand-light: var(--ds-color-brand-light);
+  --brand-bright: var(--ds-color-brand-bright);
+  --primary: var(--ds-color-brand);
+  --primary-foreground: var(--ds-color-black);
+
+  /* Borders + focus (overlay alphas, as in light.css) */
+  --border: var(--ds-opacity-dark-8);
+  --border-strong: var(--ds-opacity-dark-16);
+  --ring: var(--ds-opacity-dark-16);
+
+  /* Type */
+  --font-sans: var(--ds-font-family-sans);
+  --font-mono: var(--ds-font-family-mono);
+  --font-attract: var(--ds-font-family-display), var(--ds-font-family-sans);
+
+  /* Marketing type scale (Perfect Fourth 1.333) */
+  --font-size-xs: var(--ds-font-size-marketing-xs);
+  --font-size-sm: var(--ds-font-size-marketing-sm);
+  --font-size-base: var(--ds-font-size-marketing-base);
+  --font-size-lg: var(--ds-font-size-marketing-lg);
+  --font-size-xl: var(--ds-font-size-marketing-xl);
+  --font-size-2xl: var(--ds-font-size-marketing-2xl);
+  --font-size-3xl: var(--ds-font-size-marketing-3xl);
+  --font-size-4xl: var(--ds-font-size-marketing-4xl);
+  --font-size-5xl: var(--ds-font-size-marketing-5xl);
+
+  --line-height-none: var(--ds-line-height-marketing-none);
+  --line-height-tight: var(--ds-line-height-marketing-tight);
+  --line-height-normal: var(--ds-line-height-marketing-normal);
+  --line-height-loose: var(--ds-line-height-marketing-loose);
+
+  /* Radius: squared off — Higharc marketing surfaces are sharp-cornered,
+     so this page zeroes the marketing theme's 4px radius. */
+  --radius: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+}

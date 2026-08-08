@@ -1,0 +1,42 @@
+/* ==========================================================================
+   SHADOW TOKENS
+   Single source of truth for all elevation/shadow values
+   Prefixed with --ds-shadow-* to distinguish from semantic theme variables
+
+   Per Tailwind CSS v4 theming pattern, primitives go in @layer base.
+   See: https://github.com/tailwindlabs/tailwindcss/discussions/15600
+   ========================================================================== */
+
+:root {
+  --ds-shadow-elevation-xs: 0 1.85px 3.15px hsl(0 0% 0% / 0.0678);
+  --ds-shadow-elevation-sm:
+    0 1.85px 3.15px hsl(0 0% 0% / 0.0678), 0 8.15px 6.52px hsl(0 0% 0% / 0.0753);
+  /* Layered shadows. Each tier composes a separate hard-edge rim
+     (zero blur, sharp corners, straight-down) on top of the
+     existing soft falloff. The rim sits at a fixed short distance
+     from the window:
+       apps (md)          → 2px
+       windows (lg)       → 4px
+       dialogs (xl)       → 8px
+       alert dialogs (2xl)→ 12px
+     The rim's purpose is to give the elevated layer a crisp
+     boundary just below its edge, without competing visually with
+     the diffuse soft shadow that throws further out. */
+  --ds-shadow-elevation-md:
+    0 1.85px 3.15px hsl(0 0% 0% / 0.0678),
+    0 8.15px 6.52px hsl(0 0% 0% / 0.0753), 0 20px 13px hsl(0 0% 0% / 0.0805);
+  --ds-shadow-elevation-lg:
+    0 1.85px 3.15px hsl(0 0% 0% / 0.0678),
+    0 8.15px 6.52px hsl(0 0% 0% / 0.0753), 0 20px 13px hsl(0 0% 0% / 0.0805),
+    0 38.52px 25.48px hsl(0 0% 0% / 0.0858);
+  --ds-shadow-elevation-xl:
+    0 1.85px 3.15px hsl(0 0% 0% / 0.0678),
+    0 8.15px 6.52px hsl(0 0% 0% / 0.0753), 0 20px 13px hsl(0 0% 0% / 0.0805),
+    0 38.52px 25.48px hsl(0 0% 0% / 0.0858),
+    0 64.81px 46.85px hsl(0 0% 0% / 0.0932);
+  --ds-shadow-elevation-2xl:
+    0 1.85px 3.15px hsl(0 0% 0% / 0.0678),
+    0 8.15px 6.52px hsl(0 0% 0% / 0.0753), 0 20px 13px hsl(0 0% 0% / 0.0805),
+    0 38.52px 25.48px hsl(0 0% 0% / 0.0858),
+    0 64.81px 46.85px hsl(0 0% 0% / 0.0932), 0 100px 80px hsl(0 0% 0% / 0.105);
+}
