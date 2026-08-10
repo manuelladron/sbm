@@ -1,0 +1,25 @@
+/* ==========================================================================
+   BREAKPOINT TOKENS
+   Single source of truth for all breakpoint values
+   Prefixed with --ds-breakpoint-* to distinguish from semantic theme variables
+
+   Per Tailwind CSS v4 theming pattern, primitives go in @layer base.
+   See: https://github.com/tailwindlabs/tailwindcss/discussions/15600
+   ========================================================================== */
+
+:root {
+  /* Tailwind CSS breakpoints */
+  --ds-breakpoint-sm: 640px;
+  --ds-breakpoint-md: 768px;
+  --ds-breakpoint-lg: 1024px;
+  --ds-breakpoint-xl: 1280px;
+  --ds-breakpoint-2xl: 1536px;
+}
+
+/* Container utility removed - each app should define its own container behavior */ /* Full-width container with responsive padding only */
+@utility container-fluid {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  width: 100%;
+  max-width: none;
+}

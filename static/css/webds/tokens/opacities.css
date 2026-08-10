@@ -1,0 +1,61 @@
+/* ==========================================================================
+   OPACITY TOKENS
+   Single source of truth for all opacity values
+   Prefixed with --ds-opacity-* to distinguish from semantic theme variables
+
+   Defined outside @layer so they're available when @theme inline processes.
+   This allows Tailwind to resolve color utilities like bg-item-hover.
+   ========================================================================== */
+
+/* HDS opacity primitives - defined outside @layer for @theme inline access */
+:root {
+  /* Base opacity values */
+  --ds-opacity-0: 0;
+  --ds-opacity-1: 0.01;
+  --ds-opacity-2: 0.02;
+  --ds-opacity-3: 0.03;
+  --ds-opacity-4: 0.04;
+  --ds-opacity-5: 0.05;
+  --ds-opacity-8: 0.08;
+  --ds-opacity-16: 0.16;
+  --ds-opacity-32: 0.32;
+  --ds-opacity-48: 0.48;
+  --ds-opacity-64: 0.64;
+  --ds-opacity-96: 0.96;
+  --ds-opacity-98: 0.98;
+  --ds-opacity-100: 1;
+
+  /* Light with opacity (gray-50: #F2F2F2) - for use on dark backgrounds
+     Useful for: hover states, borders, selections, overlays */
+  --ds-opacity-light-0: rgba(255, 255, 255, var(--ds-opacity-0));
+  --ds-opacity-light-1: rgba(255, 255, 255, var(--ds-opacity-1));
+  --ds-opacity-light-2: rgba(255, 255, 255, var(--ds-opacity-2));
+  --ds-opacity-light-3: rgba(255, 255, 255, var(--ds-opacity-3));
+  --ds-opacity-light-4: rgba(255, 255, 255, var(--ds-opacity-4));
+  --ds-opacity-light-5: rgba(255, 255, 255, var(--ds-opacity-5));
+  --ds-opacity-light-8: rgba(255, 255, 255, var(--ds-opacity-8));
+  --ds-opacity-light-16: rgba(255, 255, 255, var(--ds-opacity-16));
+  --ds-opacity-light-32: rgba(255, 255, 255, var(--ds-opacity-32));
+  --ds-opacity-light-48: rgba(255, 255, 255, var(--ds-opacity-48));
+  --ds-opacity-light-64: rgba(255, 255, 255, var(--ds-opacity-64));
+  --ds-opacity-light-96: rgba(255, 255, 255, var(--ds-opacity-96));
+  --ds-opacity-light-98: rgba(255, 255, 255, var(--ds-opacity-98));
+  --ds-opacity-light-100: rgba(255, 255, 255, var(--ds-opacity-100));
+
+  /* Dark with opacity (gray-950: #161616) - for use on light backgrounds
+     Useful for: hover states, borders, selections, overlays */
+  --ds-opacity-dark-0: rgba(0, 0, 0, var(--ds-opacity-0));
+  --ds-opacity-dark-1: rgba(0, 0, 0, var(--ds-opacity-1));
+  --ds-opacity-dark-2: rgba(0, 0, 0, var(--ds-opacity-2));
+  --ds-opacity-dark-3: rgba(0, 0, 0, var(--ds-opacity-3));
+  --ds-opacity-dark-4: rgba(0, 0, 0, var(--ds-opacity-4));
+  --ds-opacity-dark-5: rgba(0, 0, 0, var(--ds-opacity-5));
+  --ds-opacity-dark-8: rgba(0, 0, 0, var(--ds-opacity-8));
+  --ds-opacity-dark-16: rgba(0, 0, 0, var(--ds-opacity-16));
+  --ds-opacity-dark-32: rgba(0, 0, 0, var(--ds-opacity-32));
+  --ds-opacity-dark-48: rgba(0, 0, 0, var(--ds-opacity-48));
+  --ds-opacity-dark-64: rgba(0, 0, 0, var(--ds-opacity-64));
+  --ds-opacity-dark-96: rgba(0, 0, 0, var(--ds-opacity-96));
+  --ds-opacity-dark-98: rgba(0, 0, 0, var(--ds-opacity-98));
+  --ds-opacity-dark-100: rgba(0, 0, 0, var(--ds-opacity-100));
+}

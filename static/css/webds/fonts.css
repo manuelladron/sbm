@@ -1,0 +1,175 @@
+/* ==========================================================================
+   FONT FACE DECLARATIONS
+   Load CircularXX, Geist Mono, and Knockout fonts.
+
+   Geist Mono is loaded from the consuming app's entry CSS (must precede all
+   non-@import rules), so it isn't declared here.
+   ========================================================================== */
+
+@font-face {
+  font-family: "CircularXX";
+  src: url("https://higharc.b-cdn.net/fonts/Circular/CircularXX-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CircularXX";
+  src: url("https://higharc.b-cdn.net/fonts/Circular/CircularXX-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CircularXX";
+  src: url("https://higharc.b-cdn.net/fonts/Circular/CircularXX-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Knockout";
+  src: url("https://higharc.b-cdn.net/fonts/Knockout/Knockout-50.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   OPENTYPE FEATURES
+   CircularXX and Knockout font feature settings
+   ========================================================================== */
+
+@layer base {
+  /* Apply stylistic alternates by default to all CircularXX text */
+  body,
+  [data-theme="marketing"],
+  [data-theme="hds"] {
+    font-feature-settings: var(--font-feature-circular);
+  }
+
+  /* Apply stylistic alternates by default to Knockout text */
+  .font-attract {
+    font-feature-settings: var(--font-feature-knockout);
+  }
+
+  :root {
+    /* ========================================================================
+       CIRCULARXX OPENTYPE FEATURES
+       - liga: Standard ligatures
+       - case: Case-sensitive forms (adjusts punctuation for all-caps)
+       - ss01: Stylistic Set 01
+       - ss08: Single-storey 'a' (alternative lowercase a)
+       - ordn: Ordinal indicators (1st, 2nd, etc.)
+       - tnum: Tabular numbers (fixed-width numerals for alignment)
+       - frac: Fractions
+       - sups: Superscript
+       - subs: Subscript
+       - numr: Numerator
+       - dnom: Denominator
+       ======================================================================== */
+
+    /* Base features for all CircularXX text */
+    --font-feature-circular: "liga" 1, "case" 1, "ss01" 1, "ss08" 1;
+
+    /* With tabular numbers (for aligned numeric columns) */
+    --font-feature-circular-tabular: "liga" 1, "case" 1, "ss01" 1, "ss08" 1,
+      "tnum" 1;
+
+    /* With ordinal indicators (for 1st, 2nd, 3rd, etc.) */
+    --font-feature-circular-ordinal: "liga" 1, "case" 1, "ss01" 1, "ss08" 1,
+      "ordn" 1;
+
+    /* With both ordinal and tabular */
+    --font-feature-circular-tabular-ordinal: "liga" 1, "case" 1, "ss01" 1,
+      "ss08" 1, "tnum" 1, "ordn" 1;
+
+    /* With fractions */
+    --font-feature-circular-fractions: "liga" 1, "case" 1, "ss01" 1, "ss08" 1,
+      "frac" 1;
+
+    /* With superscript */
+    --font-feature-circular-superscript: "liga" 1, "case" 1, "ss01" 1, "ss08" 1,
+      "sups" 1;
+
+    /* With subscript */
+    --font-feature-circular-subscript: "liga" 1, "case" 1, "ss01" 1, "ss08" 1,
+      "subs" 1;
+
+    /* With numerator */
+    --font-feature-circular-numerator: "liga" 1, "case" 1, "ss01" 1, "ss08" 1,
+      "numr" 1;
+
+    /* With denominator */
+    --font-feature-circular-denominator: "liga" 1, "case" 1, "ss01" 1, "ss08" 1,
+      "dnom" 1;
+
+    /* Stylistic alternates (ss02) */
+    --font-feature-circular-stylistic: "liga" 1, "case" 1, "ss01" 1, "ss02" 1,
+      "ss08" 1;
+
+    /* ========================================================================
+       KNOCKOUT OPENTYPE FEATURES
+       - kern: Optical kerning
+       - calt: Contextual alternates/substitutions
+       - ss01: Straight-Legged 'R'
+       - ss02: Flag-Seriffed Figure '1'
+       - ss03: Simplified Euro
+       - ss04: Large '®' Symbol
+       ======================================================================== */
+
+    --font-feature-knockout: "kern" 1, "calt" 1, "ss01" 1, "ss02" 1, "ss03" 1,
+      "ss04" 1;
+  }
+}
+
+/* ==========================================================================
+   FONT FEATURE UTILITY CLASSES
+   ========================================================================== */
+
+@layer utilities {
+  /* CircularXX Features */
+  .font-feature-circular {
+    font-feature-settings: var(--font-feature-circular);
+  }
+
+  .font-feature-tabular {
+    font-feature-settings: var(--font-feature-circular-tabular);
+  }
+
+  .font-feature-ordinal {
+    font-feature-settings: var(--font-feature-circular-ordinal);
+  }
+
+  .font-feature-fractions {
+    font-feature-settings: var(--font-feature-circular-fractions);
+  }
+
+  .font-feature-superscript {
+    font-feature-settings: var(--font-feature-circular-superscript);
+  }
+
+  .font-feature-subscript {
+    font-feature-settings: var(--font-feature-circular-subscript);
+  }
+
+  .font-feature-numerator {
+    font-feature-settings: var(--font-feature-circular-numerator);
+  }
+
+  .font-feature-denominator {
+    font-feature-settings: var(--font-feature-circular-denominator);
+  }
+
+  .font-feature-stylistic {
+    font-feature-settings: var(--font-feature-circular-stylistic);
+  }
+
+  /* Knockout Features */
+  .font-feature-knockout {
+    font-feature-settings: var(--font-feature-knockout);
+  }
+}

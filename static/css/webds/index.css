@@ -1,0 +1,26 @@
+/*
+ * @higharc/web-ds — vendored token entrypoint for this static page.
+ *
+ * Files under ./tokens and ./fonts.css are copied verbatim from
+ * @higharc/web-ds (src/styles/tokens/*, src/styles/fonts/global.css).
+ * Re-sync with `npm run sync-webds`. theme.css is the only hand-written
+ * file: it flattens the package's light + marketing themes into plain
+ * CSS custom properties so no Tailwind build is needed.
+ */
+
+/* Geist Mono must be the first @import so CSS spec ordering holds. */
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+
+@import "./tokens/color.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radius.css";
+@import "./tokens/shadows.css";
+@import "./tokens/border.css";
+@import "./tokens/opacities.css";
+@import "./tokens/sizing.css";
+@import "./tokens/breakpoints.css";
+
+@import "./fonts.css";
+
+@import "./theme.css";

@@ -1,0 +1,13 @@
+/* ==========================================================================
+   BORDER TOKENS
+   Single source of truth for all border width values
+   Prefixed with --ds-border-* to distinguish from semantic theme variables
+
+   Per Tailwind CSS v4 theming pattern, primitives go in @layer base.
+   See: https://github.com/tailwindlabs/tailwindcss/discussions/15600
+   ========================================================================== */
+
+:root {
+  --ds-border-width: 0.0625rem;
+  --ds-border-width-2: 0.125rem;
+}

@@ -1,0 +1,48 @@
+/* ==========================================================================
+   SIZING TOKENS
+   Single source of truth for all sizing values (width, height, dimensions)
+   Prefixed with --ds-size-* to distinguish from semantic theme variables
+   Use --spacing-* for margins/padding, --size-* for widths/heights/dimensions
+
+   Per Tailwind CSS v4 theming pattern, primitives go in @layer base.
+   See: https://github.com/tailwindlabs/tailwindcss/discussions/15600
+   ========================================================================== */
+
+:root {
+  /* Tailwind size scale - exact values (same as spacing) */
+  --ds-size-0: 0;
+  --ds-size-px: 1px;
+  --ds-size-0\.5: 0.125rem; /* 2px */
+  --ds-size-1: 0.25rem; /* 4px */
+  --ds-size-1\.5: 0.375rem; /* 6px */
+  --ds-size-2: 0.5rem; /* 8px */
+  --ds-size-2\.5: 0.625rem; /* 10px */
+  --ds-size-3: 0.75rem; /* 12px */
+  --ds-size-3\.5: 0.875rem; /* 14px */
+  --ds-size-4: 1rem; /* 16px */
+  --ds-size-5: 1.25rem; /* 20px */
+  --ds-size-6: 1.5rem; /* 24px */
+  --ds-size-7: 1.75rem; /* 28px */
+  --ds-size-8: 2rem; /* 32px */
+  --ds-size-9: 2.25rem; /* 36px */
+  --ds-size-10: 2.5rem; /* 40px */
+  --ds-size-11: 2.75rem; /* 44px */
+  --ds-size-12: 3rem; /* 48px */
+  --ds-size-14: 3.5rem; /* 56px */
+  --ds-size-16: 4rem; /* 64px */
+  --ds-size-20: 5rem; /* 80px */
+  --ds-size-24: 6rem; /* 96px */
+  --ds-size-28: 7rem; /* 112px */
+  --ds-size-32: 8rem; /* 128px */
+  --ds-size-36: 9rem; /* 144px */
+  --ds-size-40: 10rem; /* 160px */
+  --ds-size-44: 11rem; /* 176px */
+  --ds-size-48: 12rem; /* 192px */
+  --ds-size-52: 13rem; /* 208px */
+  --ds-size-56: 14rem; /* 224px */
+  --ds-size-60: 15rem; /* 240px */
+  --ds-size-64: 16rem; /* 256px */
+  --ds-size-72: 18rem; /* 288px */
+  --ds-size-80: 20rem; /* 320px */
+  --ds-size-96: 24rem; /* 384px */
+}

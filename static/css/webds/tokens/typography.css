@@ -1,0 +1,78 @@
+:root {
+  /* Font Families - Marketing (CircularXX) */
+  --ds-font-family-sans: CircularXX, sans-serif;
+  --ds-font-family-mono:
+    "Geist Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+  --ds-font-family-display: Knockout;
+
+  /* Font Families - Product (System Stack) */
+  --ds-font-family-product:
+    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --ds-font-family-product-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono",
+    monospace;
+
+  /* Font Weights */
+  --ds-font-weight-circular-normal: 400;
+  --ds-font-weight-circular-medium: 500;
+  --ds-font-weight-circular-bold: 700;
+  --ds-font-weight-knockout-welter: NaN;
+  --ds-font-weight-knockout-sumo: NaN;
+
+  /* Generic Font Weights (mapped to Circular) */
+  --ds-font-weight-normal: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+
+  /* Marketing Font Sizes - Perfect Fourth Scale (1.333) */
+  --ds-type-scale-marketing: 1.333; /* Perfect Fourth ratio */
+
+  /* Pre-calculated values (pow() has limited browser support) */
+  --ds-font-size-marketing-xs: 0.5625rem; /* 9px - base / 1.333^2 */
+  --ds-font-size-marketing-sm: 0.75rem; /* 12px - base / 1.333 */
+  --ds-font-size-marketing-base: 1rem; /* 16px */
+  --ds-font-size-marketing-lg: 1.333rem; /* ~21px - base * 1.333 */
+  --ds-font-size-marketing-xl: 1.777rem; /* ~28px - base * 1.333^2 */
+  --ds-font-size-marketing-2xl: 2.369rem; /* ~38px - base * 1.333^3 */
+  --ds-font-size-marketing-3xl: 3.157rem; /* ~51px - base * 1.333^4 */
+  --ds-font-size-marketing-4xl: 4.209rem; /* ~67px - base * 1.333^5 */
+  --ds-font-size-marketing-5xl: 5.61rem; /* ~90px - base * 1.333^6 */
+  --ds-font-size-marketing-6xl: 7.478rem; /* ~120px - base * 1.333^7 */
+  --ds-font-size-marketing-7xl: 9.969rem; /* ~160px - base * 1.333^8 */
+  --ds-font-size-marketing-8xl: 13.288rem; /* ~213px - base * 1.333^9 */
+  --ds-font-size-marketing-9xl: 17.713rem; /* ~283px - base * 1.333^10 */
+
+  /* Marketing Line Heights - Looser for readability */
+  --ds-line-height-marketing-none: 1;
+  --ds-line-height-marketing-tight: 1.2;
+  --ds-line-height-marketing-normal: 1.5;
+  --ds-line-height-marketing-loose: 1.6;
+
+  /* Product Font Sizes - Major Third Scale (1.25) */
+  --ds-type-scale-product: 1.25; /* Major Third ratio */
+  --ds-font-size-product-base: 1rem; /* 16px */
+
+  /* Pre-calculated values (pow() has limited browser support) */
+  --ds-font-size-product-xxs: 0.512rem; /* ~8px - base / 1.25^3 */
+  --ds-font-size-product-xs: 0.64rem; /* ~10px - base / 1.25^2 */
+  --ds-font-size-product-sm: 0.8rem; /* ~13px - base / 1.25 */
+  --ds-font-size-product-lg: 1.25rem; /* 20px - base * 1.25 */
+  --ds-font-size-product-xl: 1.563rem; /* ~25px - base * 1.25^2 */
+  --ds-font-size-product-2xl: 1.953rem; /* ~31px - base * 1.25^3 */
+  --ds-font-size-product-3xl: 2.441rem; /* ~39px - base * 1.25^4 */
+  --ds-font-size-product-4xl: 3.052rem; /* ~49px - base * 1.25^5 */
+  --ds-font-size-product-5xl: 3.815rem; /* ~61px - base * 1.25^6 */
+  --ds-font-size-product-6xl: 4.768rem; /* ~76px - base * 1.25^7 */
+  --ds-font-size-product-7xl: 5.96rem; /* ~95px - base * 1.25^8 */
+  --ds-font-size-product-8xl: 7.451rem; /* ~119px - base * 1.25^9 */
+  --ds-font-size-product-9xl: 9.313rem; /* ~149px - base * 1.25^10 */
+
+  /* Product Line Heights - Tighter for UI density */
+  --ds-line-height-product-none: 1;
+  --ds-line-height-product-tight: 1.1;
+  --ds-line-height-product-normal: 1.4;
+  --ds-line-height-product-loose: 1.5;
+}

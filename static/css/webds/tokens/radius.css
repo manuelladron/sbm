@@ -1,0 +1,19 @@
+/* ==========================================================================
+   BORDER RADIUS TOKENS
+   Single source of truth for all border radius values
+   Prefixed with --ds-radius-* to distinguish from semantic theme variables
+
+   Per Tailwind CSS v4 theming pattern, primitives go in @layer base.
+   See: https://github.com/tailwindlabs/tailwindcss/discussions/15600
+   ========================================================================== */
+
+:root {
+  --ds-radius-none: 0;
+  --ds-radius-xs: 0.125rem; /* 2px */
+  --ds-radius-sm: 0.25rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 0.75rem;
+  --ds-radius-xl: 1rem;
+  --ds-radius-2xl: 1.5rem;
+  --ds-radius-full: 624.9375rem;
+}

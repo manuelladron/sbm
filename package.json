@@ -1,0 +1,12 @@
+{
+  "name": "sbm-project-page",
+  "private": true,
+  "description": "Static project page for SBM (EUVIP 2026), styled with @higharc/web-ds design tokens.",
+  "scripts": {
+    "sync-webds": "node scripts/sync-webds.mjs",
+    "serve": "npx --yes serve ."
+  },
+  "devDependencies": {
+    "@higharc/web-ds": "^0.0.41"
+  }
+}
