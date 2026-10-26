@@ -219,7 +219,7 @@ a {
   animation: hero-rise 640ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Acceptance badge inline with the muted conference detail; the
+/* Award badge inline with the muted conference detail; the
    line balances across two even lines. */
 .hero-venue {
   max-width: 34rem;
@@ -248,6 +248,18 @@ a {
   font-weight: var(--ds-font-weight-medium);
   line-height: var(--line-height-tight);
   white-space: nowrap;
+}
+
+/* Award variant: brand fill so the award reads first. The trophy
+   centers on the text instead of sitting on the baseline. */
+.venue-award {
+  gap: var(--ds-spacing-1);
+  background: var(--brand-light);
+  border-color: var(--brand);
+}
+
+.venue-award .icon {
+  align-self: center;
 }
 
 .venue-detail {
@@ -434,7 +446,9 @@ sup {
   border-radius: var(--radius-lg);
 }
 
-.figure-panel img {
+.figure-panel img,
+.figure-panel video {
+  display: block;
   width: 100%;
   border-radius: var(--radius-md);
 }
@@ -1057,7 +1071,7 @@ html.js .reveal.is-visible {
   .stat-grid-4 {
     grid-template-columns: 1fr;
   }
-  /* Acceptance badge sits on its own line */
+  /* Award badge sits on its own line */
   .venue-detail {
     display: block;
     margin-top: var(--ds-spacing-2);

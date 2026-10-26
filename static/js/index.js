@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initBibtexCopy()
   initReveal()
   initMetrics()
+  initLoopVideos()
 })
 
 /**
@@ -264,5 +265,23 @@ function initReveal() {
 
   revealables.forEach(function (element) {
     observer.observe(element)
+  })
+}
+
+/**
+ * Looping explainer videos (video[data-loop]) autoplay like GIFs.
+ * Under reduced motion they stay on the poster frame with controls,
+ * so the viewer chooses whether to play them.
+ */
+function initLoopVideos() {
+  const reducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches
+  if (!reducedMotion) return
+
+  document.querySelectorAll('video[data-loop]').forEach(function (video) {
+    video.removeAttribute('autoplay')
+    video.pause()
+    video.controls = true
   })
 }

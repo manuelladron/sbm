@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis. Accepted at EUVIP 2026. Small Building Model (SBM) for BIM layout generation.">
+  <meta name="description" content="BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis. EUVIP 2026 Best Industrial Paper Award. Small Building Model (SBM) for BIM layout generation.">
   <meta name="keywords" content="SBM, BIM, Layout Synthesis, Transformer, DDEP, Building Information Modeling">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BIM-Native Tokenization for Constraint-Aware Room Layout Synthesis</title>
@@ -53,6 +53,12 @@
     </symbol>
     <symbol id="i-play-circle" viewBox="0 0 256 256" fill="currentColor">
       <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48.24-94.78-64-40A8,8,0,0,0,100,88v80a8,8,0,0,0,12.24,6.78l64-40a8,8,0,0,0,0-13.56ZM116,153.57V102.43L156.91,128Z"/>
+    </symbol>
+    <symbol id="i-presentation" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176Z"/>
+    </symbol>
+    <symbol id="i-trophy" viewBox="0 0 256 256" fill="currentColor">
+      <path d="M232,64H208V48a8,8,0,0,0-8-8H56a8,8,0,0,0-8,8V64H24A16,16,0,0,0,8,80V96a40,40,0,0,0,40,40h3.65A80.13,80.13,0,0,0,120,191.61V216H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V191.58c31.94-3.23,58.44-25.64,68.08-55.58H208a40,40,0,0,0,40-40V80A16,16,0,0,0,232,64ZM48,120A24,24,0,0,1,24,96V80H48v32q0,4,.39,8Zm144-8.9c0,35.52-28.49,64.64-63.51,64.9H128a64,64,0,0,1-64-64V56H192ZM232,96a24,24,0,0,1-24,24h-.5a81.81,81.81,0,0,0,.5-8.9V80h24Z"/>
     </symbol>
     <symbol id="i-github" viewBox="0 0 256 256" fill="currentColor">
       <path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"/>
@@ -109,9 +115,12 @@
       BIM-Native Tokenization for <span class="brand-underline-thick">Constraint-Aware Room Layout Synthesis</span>
     </h1>
     <p class="hero-venue">
-      <span class="venue-accept">Accepted at EUVIP 2026</span>
+      <span class="venue-accept venue-award">
+        <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-trophy"/></svg>
+        Best Industrial Paper Award
+      </span>
       <span class="venue-detail">
-        14th European Conference on Visual Information Processing, Luxembourg
+        EUVIP 2026, 14th European Conference on Visual Information Processing, Luxembourg
       </span>
     </p>
     <div class="hero-authors">
@@ -157,6 +166,10 @@
       <a href="#video" class="btn">
         <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-play-circle"/></svg>
         <span>Video</span>
+      </a>
+      <a href="./static/paper/sbm_slides.pdf" class="btn">
+        <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-presentation"/></svg>
+        <span>Slides</span>
       </a>
       <a href="#" class="btn is-disabled" aria-disabled="true">
         <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-github"/></svg>
@@ -251,6 +264,18 @@
         <p>A single Transformer supports encoder-only room embeddings for retrieval and encoder-decoder DDEP for autoregressive layout generation.</p>
       </div>
     </div>
+
+    <!-- Tokenization animation: plays like a GIF; js/index.js pauses it under reduced motion -->
+    <figure class="figure-panel reveal">
+      <video data-loop autoplay muted loop playsinline preload="metadata"
+             poster="./static/images/sbm_tokenization_poster.jpg"
+             aria-label="Animation of the mixed-type embedding turning the sparse attribute-feature matrix into one vector per token">
+        <source src="./static/video/sbm_tokenization.mp4" type="video/mp4">
+      </video>
+      <figcaption class="figure-caption">
+        <strong>Mixed-type embedding, step by step.</strong> Each feature row of the sparse attribute-feature matrix has its own embedder: a lookup table for categorical features, a small MLP for continuous ones, and a joint embedding for the grouped edge endpoints. Masked cells become exact zero vectors. A gated sum then adds the features of each token down its column, never across tokens, so S tokens go in and S vectors come out, one per BIM element, ready for the Transformer encoder.
+      </figcaption>
+    </figure>
   </div>
 
   <div class="container container-text">
